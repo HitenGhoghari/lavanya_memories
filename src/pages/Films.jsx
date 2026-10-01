@@ -1,46 +1,74 @@
-const FILMS = [
-  { title: 'The Beginning', year: '2026', video: '/videos/starter.mp4' },
-  { title: 'A Moving Story', year: '2026', video: '/videos/title.mp4' },
-]
+import { useState } from "react";
+import { YOUTUBE_VIDEOS } from "../data";
 
 export default function Films() {
-  return (
-    <section className="films-page">
-      <header className="archive-head films-head">
-        <div className="archive-title-row">
-          <span className="archive-label">03 / Films</span>
-          <p className="eyebrow">Moving images</p>
-        </div>
-        <div className="archive-title-content">
-          <h1>Films</h1>
-          <p className="archive-intro">
-            Short films and moving stories built around atmosphere, people and place.
-          </p>
-        </div>
-      </header>
+  const [playingId, setPlayingId] = useState(null);
 
-      <div className="films-grid">
-        {FILMS.map((film, index) => (
-          <article className={`film-card film-card-${index + 1}`} key={film.title}>
-            <div className="film-frame">
-              <span className="film-index">{String(index + 1).padStart(2, '0')}</span>
-              <video
-                src={film.video}
-                muted
-                loop
-                playsInline
-                controls
-                preload="metadata"
-              />
+  return (
+    <section className="films-page-new">
+
+      {/* ============================================================
+          HERO
+          ============================================================ */}
+      <header className="films-hero">
+  <div className="films-hero-text">
+    <span className="films-hero-line">Cinematic</span>
+    <span className="films-hero-line films-hero-line-2">Memories</span>
+  </div>
+</header>
+
+      {/* ============================================================
+          INTRO PARAGRAPH
+          ============================================================ */}
+      <div className="films-intro-block">
+        <p>
+          Our wedding films are designed to be a living, breathing reflection of your unique journey. From the quiet morning anticipation to the vibrant energy of your reception, we craft films that feel as authentic and alive as the day itself. Whether we are producing a short, impactful teaser or a sweeping full-length feature, every single frame is intentionally captured to highlight your genuine connection. We go far beyond merely hitting record; we weave a rich visual narrative that allows you to step right back into the shared laughter, the unspoken glances, and the overwhelming joy. Our deepest hope is to preserve your celebration so vividly that every time you press play, the magic rushes back. This is your story, captured beautifully in motion.
+          in motion.
+        </p>
+      </div>
+
+      {/* ============================================================
+          FILM GRID (no filter bar)
+          ============================================================ */}
+      <div className="films-grid-new">
+        {YOUTUBE_VIDEOS.map((video, index) => (
+          <article className="film-card-new" key={`${video.id}-${index}`}>
+            <div className="film-thumb-new">
+              {playingId === index ? (
+                <iframe
+                  src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`}
+                  title={video.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="film-iframe-new"
+                />
+              ) : (
+                <>
+                  <img
+                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                    onError={(e) => {
+                      e.currentTarget.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+                    }}
+                    alt={video.title}
+                    loading="lazy"
+                  />
+                  <button
+                    type="button"
+                    className="film-play-new"
+                    aria-label={`Play ${video.title}`}
+                    onClick={() => setPlayingId(index)}
+                  >
+                    <span className="sr-only">Play</span>
+                  </button>
+                </>
+              )}
             </div>
-            <div className="film-info">
-              <div>
-                <h2>{film.title}</h2>
-              </div>
-            </div>
+
+            <h3 className="film-title-new">{video.title}</h3>
           </article>
         ))}
       </div>
+
     </section>
-  )
+  );
 }

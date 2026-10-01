@@ -26,7 +26,7 @@ export default function FilmsSection() {
         </div>
 
         <div className="home-films-grid">
-          {YOUTUBE_VIDEOS.map((video, index) => (
+          {YOUTUBE_VIDEOS.slice(0, 2).map((video, index) => (
             <div key={index} className="home-film-card rv">
               <div className="home-film-thumb">
                 {playingId === video.id ? (

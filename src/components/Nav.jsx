@@ -27,9 +27,7 @@ export default function Nav() {
           <img src="/images/logo1.png" alt={SITE.name} id="home_logo" />
         </a>
 
-        <a className="nav-mail" href="#contact">
-          Enquire
-        </a>
+        <AppLink className="nav-mail" to="/enquiry">Enquire</AppLink>
 
         <button
           className={"burger" + (open ? " on" : "")}
@@ -49,6 +47,7 @@ export default function Nav() {
           { to: "/editorial", label: "Editorial" },
           { to: "/films", label: "Films" },
           { to: "/faq", label: "FAQ" },
+          { to: '/enquiry', label: 'Enquire'},
         ].map((l) => (
           <AppLink key={l.to} to={l.to} onClick={() => setOpen(false)}>
             {l.label}

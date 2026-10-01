@@ -11,9 +11,7 @@ export default function FAQ() {
   return (
     <section className="faq-page">
       <div className="archive-head">
-        <p className="eyebrow">Before you write in</p>
         <h1>FAQ</h1>
-        <p className="archive-intro">Answers to what people usually ask before booking.</p>
       </div>
 
       <div className="faq-list">

@@ -14,6 +14,7 @@ import Photography from "./pages/Photography";
 import Editorial from "./pages/Editorial";
 import Films from "./pages/Films";
 import FAQ from "./pages/FAQ";
+import Enquiry from "./pages/Enquiry";
 import Project from "./pages/Project";
 
 // Everything that used to be the whole site is now "the home page" -
@@ -26,7 +27,6 @@ function Home() {
       <FilmsSection />
       <Testimonials />
       <InstagramSection />
-      <Contact />
     </>
   );
 }
@@ -39,6 +39,7 @@ const ROUTES = {
   "/editorial": Editorial,
   "/films": Films,
   "/faq": FAQ,
+  "/enquiry": Enquiry, 
 };
 
 export default function App() {

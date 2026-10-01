@@ -3,12 +3,14 @@
 //  Change the text here and the whole site updates.
 // ============================================================
 
+export const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+
 export const SITE = {
   name: "Lavanya Memories",
   role: "Photographer",
   city: "Surat",
   region: "Gujarat, India",
-  email: "lavanyamemories@gmail.com",
+  email: "lavanyamemories14@gmail.com",
   phone: "+91 7391826450",
   instagram:
     "https://www.instagram.com/lavanya_memories_?stkn=Zmk0MHRscjZ6aHdp",
@@ -246,18 +248,18 @@ export const YOUTUBE_VIDEOS = [
     id: "6jrNHEhnd1c",
     title: "Kishan x Jyoti",
   },
-  // {
-  //   id: "OB3EPjnSMhQ",
-  //   title: "PIYUSH & HIRAL",
-  // },
-  // {
-  //   id: "rn-kLdfsFpg",
-  //   title: "Kishan x Jyoti",
-  // },
-  // {
-  //   id: "cK3IanMkN5w",
-  //   title: "PIYUSH & HIRAL",
-  // },
+  {
+    id: "OB3EPjnSMhQ",
+    title: "PIYUSH & HIRAL",
+  },
+  {
+    id: "rn-kLdfsFpg",
+    title: "Kishan x Jyoti",
+  },
+  {
+    id: "cK3IanMkN5w",
+    title: "PIYUSH & HIRAL",
+  },
 ];
 
 // ============================================================
