@@ -11,7 +11,7 @@ export const SITE = {
   city: "Surat",
   region: "Gujarat, India",
   email: "lavanyamemories14@gmail.com",
-  phone: "+91 7391826450",
+  phone: "+91 8140392806",
   instagram:
     "https://www.instagram.com/lavanya_memories_?stkn=Zmk0MHRscjZ6aHdp",
   youtube: "https://www.youtube.com/@lavanyamemories14",

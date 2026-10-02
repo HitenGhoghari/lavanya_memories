@@ -1053,7 +1053,81 @@ video {
 }
 
 /* =========================================================
-   TESTIMONIALS  — text first, image second (every row)
+   VIEW MORE LINK (home films section)
+   ========================================================= */
+
+.home-films-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.view-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  font-family: "Times New Roman", serif;
+  font-size: 14px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 500;
+
+  color: var(--ink);
+  padding: 14px 4px;
+  position: relative;
+
+  transition: opacity .3s ease;
+}
+
+/* Underline that grows from left on hover */
+.view-more-link::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  bottom: 6px;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
+.view-more-link:hover {
+  opacity: .7;
+}
+
+.view-more-link:hover::after {
+  transform: scaleX(1);
+}
+
+.view-more-arrow {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform .35s cubic-bezier(.22, 1, .36, 1);
+}
+
+.view-more-link:hover .view-more-arrow {
+  transform: translateX(6px);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 720px) {
+  .home-films-more {
+    margin-top: 40px;
+  }
+
+  .view-more-link {
+    font-size: 12px;
+    letter-spacing: .18em;
+  }
+}
+
+
+/* =========================================================
+   TESTIMONIALS — alternating zigzag on desktop, stacked on mobile
    ========================================================= */
 
 .testimonials-section {
@@ -1109,11 +1183,20 @@ video {
   color: var(--ink);
 }
 
-/* Text first, image second — every row. No more row-reverse. */
+/* Row layout: text first in DOM, image second */
 .testimonial-row-inner {
   display: flex;
   gap: clamp(30px, 5vw, 60px);
   align-items: center;
+  flex-direction: row;               /* text left, image right (default) */
+}
+
+/*
+  Alternating zigzag: flip the FIRST (odd) row of each pair so the
+  image sits on the left. Even rows keep text-left / image-right.
+*/
+.testimonial-row:nth-child(odd) .testimonial-row-inner {
+  flex-direction: row-reverse;
 }
 
 .testimonial-content {
@@ -1175,7 +1258,7 @@ video {
   transform: scale(1.02);
 }
 
-/* Rows without an image get centered text */
+/* Rows with no image get centered text */
 .testimonial-row:not(.has-image) .testimonial-content {
   max-width: 650px;
   margin: 0 auto;
@@ -1184,6 +1267,36 @@ video {
 
 .testimonial-row:not(.has-image) .testimonial-signature {
   text-align: center;
+}
+
+/* =========================================================
+   TESTIMONIALS — mobile: always stack text-first
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /* Force every row to column, image below text */
+  .testimonial-row-inner,
+  .testimonial-row:nth-child(odd) .testimonial-row-inner,
+  .testimonial-row:nth-child(even) .testimonial-row-inner,
+  .testimonial-row.has-image .testimonial-row-inner,
+  .testimonial-row.has-image:nth-child(odd) .testimonial-row-inner,
+  .testimonial-row.has-image:nth-child(even) .testimonial-row-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .testimonial-image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .testimonial-signature {
+    text-align: center;
+  }
+
+  .testimonials-head h2 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
 }
 
 /* =========================================================
@@ -2677,7 +2790,7 @@ video {
 
   .work-head h2 {
     font-size: 22px;
-    letter-spacing: -1px;
+    letter-spacing: 2px;
   }
 
   .work-paragraph {

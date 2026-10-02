@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { YOUTUBE_VIDEOS } from "../data";
+import { SITE, YOUTUBE_VIDEOS } from "../data";
+import { AppLink } from "../router";
 
 export default function FilmsSection() {
-  // Track which video is currently playing inline
   const [playingId, setPlayingId] = useState(null);
 
   return (
@@ -30,7 +30,6 @@ export default function FilmsSection() {
             <div key={index} className="home-film-card rv">
               <div className="home-film-thumb">
                 {playingId === video.id ? (
-                  // If playing, show the YouTube iframe
                   <iframe
                     src={`https://www.youtube.com/embed/${video.id}?autoplay=1&rel=0`}
                     title={video.title}
@@ -39,11 +38,12 @@ export default function FilmsSection() {
                     className="home-film-iframe"
                   />
                 ) : (
-                  // Otherwise, show the thumbnail and play button
                   <>
                     <img
                       src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
-                      onError={(e) => { e.currentTarget.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg` }}
+                      onError={(e) => {
+                        e.currentTarget.src = `https://img.youtube.com/vi/${video.id}/hqdefault.jpg`;
+                      }}
                       alt={video.title}
                       loading="lazy"
                     />
@@ -57,12 +57,21 @@ export default function FilmsSection() {
                   </>
                 )}
               </div>
+
               <div className="home-film-info">
                 <h3>{video.title}</h3>
                 {video.desc && <p>{video.desc}</p>}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* ---------- VIEW MORE (outside the map) ---------- */}
+        <div className="home-films-more rv">
+          <AppLink to="/films" className="view-more-link">
+            View more films
+            <span className="view-more-arrow" aria-hidden="true">→</span>
+          </AppLink>
         </div>
       </div>
     </section>
