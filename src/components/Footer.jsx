@@ -57,6 +57,9 @@ export default function Footer() {
             <a href={"tel:" + SITE.phone.replace(/\s/g, "")}>
               Phone : {SITE.phone.replace(/\s/g, "")}
             </a>
+            <span className="foot-location">
+              Based in {SITE.city}, {SITE.region}
+            </span>
           </div>
 
         </div>

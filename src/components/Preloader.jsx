@@ -5,24 +5,42 @@ export default function Preloader({ onDone }) {
   const [pct, setPct] = useState(0)
   const [leaving, setLeaving] = useState(false)
 
+  // useEffect(() => {
+  //   let value = 0
+
+  //   const id = setInterval(() => {
+  //     value = Math.min(100, value + Math.random() * 12)
+  //     setPct(value)
+
+  //     if (value >= 100) {
+  //       clearInterval(id)
+
+  //       setTimeout(() => setLeaving(true), 240)
+
+  //       setTimeout(() => onDone(), 980)
+  //     }
+  //   }, 90)
+
+  //   return () => clearInterval(id)
+  // }, [onDone])
+
   useEffect(() => {
-    let value = 0
+  const start = Date.now();
+  let value = 0;
 
-    const id = setInterval(() => {
-      value = Math.min(100, value + Math.random() * 12)
-      setPct(value)
+  const id = setInterval(() => {
+    value = Math.min(100, value + Math.random() * 15);
+    setPct(value);
 
-      if (value >= 100) {
-        clearInterval(id)
+    if (value >= 100 && Date.now() - start > 400) {
+      clearInterval(id);
+      setTimeout(() => setLeaving(true), 200);
+      setTimeout(() => onDone(), 700);
+    }
+  }, 60);
 
-        setTimeout(() => setLeaving(true), 240)
-
-        setTimeout(() => onDone(), 980)
-      }
-    }, 90)
-
-    return () => clearInterval(id)
-  }, [onDone])
+  return () => clearInterval(id);
+}, [onDone]);
 
   return (
     <div id="boot" className={leaving ? 'boot-out' : ''}>

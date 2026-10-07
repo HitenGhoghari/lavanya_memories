@@ -3,7 +3,7 @@
 //  Change the text here and the whole site updates.
 // ============================================================
 
-export const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+export const WEB3FORMS_KEY = "b7b38818-21d3-46c9-b3f7-66384a955031";
 
 export const SITE = {
   name: "Lavanya Memories",
@@ -173,12 +173,12 @@ export const PROJECTS = [
     ],
   },
   {
-    slug: "kedarnath-in-the-dark",
+    slug: "sunil-vaishali",
     type: "Photography",
-    title: "Kedarnath, in the dark",
-    location: "Kedarnath",
+    title: "Sunil&Vaishali",
+    location: "Surat",
     year: 2025,
-    cover: "kedarnath-night",
+    cover: "sunil01",
     description:
       "The temple after the crowd thins out - lit by fire, not floodlight, for the last few hours before the gates close.",
     photos: [
@@ -267,79 +267,39 @@ export const YOUTUBE_VIDEOS = [
 // ============================================================
 export const TESTIMONIALS = [
   {
-    name: "Aakash & Laveena",
-    image: "vishal01", // Replace with your actual image file name
-    projectSlug: "Vishal-Trupti",
-    text: `A Heartfelt Thank You to Raveeraj & Moonlight Pictures
-
-I happened to discover Raveeraj on Instagram while I was searching for a wedding photographer. I was in touch with a few others at the time, but something about his work and energy stood out. After a few chats on IG, we got on a call - and what was meant to be a quick conversation quickly turned into a lengthy conversation filled with creative ideas and shared excitement. A few months later, when we met again, it felt like meeting an old friend. That's the kind of warmth and generosity Raveeraj brings with him. His creativity, calm energy instantly clicked with me.
-
-Fast forward to today—he's not just my wedding photographer, he's a wonderful friend. We still connect once or twice a month, and I genuinely hope this bond continues for life.
-
-As for the experience itself—it was outstanding. Raveeraj and his incredible team covered multiple events for us, and each one was executed with perfection and attention to the smallest detail. I never felt there was a gap in their work; everything was seamless, professional, and more importantly, full of heart.
-
-Thank you, Moonlight Pictures, for delivering a masterpiece that I'll cherish for the rest of my life. These aren't just photos or videos—they're memories I'll hold onto forever.
-
-With all my heart,`,
-    signature: "Aakash Singh"
-  },
-  {
-    name: "Kalrav & Urvi",
-    image: "vishal02", // Replace with your actual image
-    projectSlug: "the-road-that-bends",
-    text: `To,
-The artists who see love through a lens and capture it with amaze!!! How do you guys manage to be so precise in capturing every couple exactly as they are; their love and their unspoken understanding? It's truly magical. The way you portrayed us, not just as a couple, but as two people who deeply know and feel each other is something we will treasure forever.
-You didn't just document our wedding; you told our story. Every smile, your slice, you patte me, ent you no pted. ee. ad morpust est yoor dee. That make you stand out
-You don't just take pictures, you see people. You see emotions. You see love in its purest form and turn it into timeless art.
-We feel so lucky to have had you be a part of our most special day. Thank you for not just doing your job, but pouring your heart into it. You truly have a rare vision, and we appreciate it.
-With all our gratitude.`,
-    signature: "Kalrav Patel"
-  },
-  {
-    name: "Vijay & Nidhi",
-    image: "vishal03",
-    projectSlug: "Vishal-Trupti",
-    text: `Moonlight Pictures absolutely nailed it!!!!
-
-The pre-wedding film still gives us goosebumps, it felt like a real movie, but somehow still us. The way they captured the emotions, the vibe, the fun... everything was just perfect. Every frame felt personal, every shot felt like it had a heartbeat. We've watched it so many times and still can't get over it!! It's not just a video, it's a memory machine we keep going back to.
-
-The photography was stunning too, every shot felt alive, nothing felt forced. From stolen glances to random laughs, they caught it all without ever making us feel like we were posing. Just pure moments, exactly how we'd want to remember them.
-
-And the wedding film... emotional, raw, real. It felt like reliving those days all over again! Not just the big moments, but the small ones we didn't even realize mattered so much! they're all in there. It felt like watching our story through the eyes of someone who really understood us.
-
-Big love to Raveeraj bhai, Nijuni bhai, and Manish bhai you guys didn't just shoot a wedding, you told our story. With so much heart, so much creativity, and so much honesty.
-
-Couldn't have asked for a better team.`,
-    signature: "Vijay Joshi"
-  },
-  {
-    name: "Aishwarya & Srikrishnan",
-    image: "vishal04",
-    projectSlug: "kedarnath-in-the-dark",
-    text: `YOU HAVE GOT TO HIRE THEM FOR ALL YOUR SPECIAL OCCASIONS. The kind of work they've done is unbelievable. They've created a magic out of the pictures and videos from my wedding day. Just hire them already. Thank you to the team of moonlight pictures for doing this for us. Truly appreciate you guys.`,
-    signature: "Aishwarya Srikrishnan"
-  },
-  {
-    name: "Devanshi & Prag",
-    image: "vishal05",
-    projectSlug: "the-ridge-above-chopta",
-    text: `You guys have captured our stories so beautifully. It's surreal how you have been able to pick the right words to describe our wedding journey and show our happiness, you guys are so good at your job. All our wedding pictures look straight out of a fairytale because our romance "with the camera" clearly sucked (haha). Thank you to each one of you for making our special moment extra special!`,
-    signature: "Devanshi Patel"
-  },
-  {
-    name: "Rithwik & Tejasree",
-    image: "vishal06",
-    projectSlug: "tungnath-before-the-rain",
-    text: `The best in town and out there. We had our wedding in Melbourne, Victoria and they flew there, handled everything so beautifully at the wedding. Their understanding of our needs, the planning, execution and efforts are a certain highlight of this team. Do not hesitate to choose Moonlight for your special occasions. Thank you for the memories guys!!!!!`,
-    signature: "Rithwik Goud"
-  },
-  {
-    name: "Tejasree & Rithwik",
+    name: "Piyush & Hiral",
     image: "vishal07",
     projectSlug: "rest-in-pahad",
-    text: `Firstly, a big big thank you to each and everyone who worked with us from Moonlight Pictures. We couldn't have asked for a more perfect photographer to capture our special day! From start to finish, they were incredibly professional, attentive, and creative. Every moment—big and small—was captured beautifully, with so much attention to detail. Our sneak peeks were absolutely stunning, and looking at them brought us right back to all the emotions of our wedding day. We're beyond grateful for their talent and dedication. Highly recommend to anyone looking for wedding photography. They will not only meet but exceed your expectations!
-P.S. The team is extremely kind, great listeners, and super easy to work with. The service is impeccable and we will definitely 100% be hiring them for our next events! Also check out their impeccable instagram page!`,
-    signature: "Tejasree Rithwik"
+    text: `We cannot thank the team at Lavanya Memories enough for capturing our engagement so beautifully. From the very first click, they made us feel incredibly comfortable, allowing our true chemistry to shine through effortlessly. The photos and the teaser film are absolute magic—they perfectly encapsulate the excitement, love, and anticipation of this new chapter in our lives. Every single frame feels so authentic and true to who we are as a couple. If this is how our engagement turned out, we simply cannot wait for the wedding! Thank you for giving us the most beautiful start to our forever.`,
+    signature: "Piyush Jikadara"
+  },
+  {
+    name: "Vishal & Trupti",
+    image: "vishal01", // Replace with your actual image file name
+    projectSlug: "Vishal-Trupti",
+    text: `Booking Lavanya Memories for our engagement was simply the best decision we made to kick off our wedding journey. We were initially a little camera-shy, but the team’s calm and friendly energy instantly put us at ease. They didn't force us into stiff poses; instead, they let us just be ourselves and somehow captured the exact magic of our relationship. The photos and the short film are filled with genuine laughter, quiet glances, and so much love. Looking at the final gallery feels like reliving that beautiful day all over again. Thank you, Lavanya Memories, for giving us the most perfect memories to hold onto forever!`,
+    signature: "Vishal Ghoghari"
+  },
+  {
+    name: "Sunil & Vaishali",
+    image: "sunil01",
+    projectSlug: "kedarnath-in-the-dark",
+    text: `We are endlessly grateful to Lavanya Memories for capturing our baby shower with so much tenderness and care. As we prepare to welcome our little one, this milestone meant the world to us, and the team documented it perfectly. They focused on the raw emotions, the happy tears, and the overwhelming love radiating from our family and friends. None of the photos feel staged or forced; they just reflect pure, genuine anticipation. We will cherish these beautiful memories forever as we step into this new chapter of parenthood. Thank you for giving us a treasure we can one day share with our baby!`,
+    signature: "Sunil Kachariya"
+  },
+  {
+    name: "Dharmesh & Kirti",
+    image: "kdk01", // Replace with your actual image
+    projectSlug: "the-road-that-bends",
+    text: `We couldn't be happier with how Lavanya Memories captured our baby shower. This is such a monumental milestone for us as we prepare to welcome our little one, and the team managed to document every ounce of love, anticipation, and joy in the room. They perfectly caught the intimate, candid moments with our family and friends without making anything feel posed or unnatural. Looking at these beautiful photos brings back all the happy tears and excitement we felt that day. Thank you for giving us such precious memories that we will one day share with our baby!`,
+    signature: "Dharmesh Kalsariya"
+  },
+  {
+    name: "Kishan & Jyoti",
+    image: "kishan01",
+    projectSlug: "Vishal-Trupti",
+    text: `Choosing Lavanya Memories for our engagement was an absolute blessing. We wanted our photos to reflect our true bond without looking overly staged, and the team delivered exactly that. They created such a relaxed and fun atmosphere that we completely forgot the cameras were even there. From our nervous smiles before the ring exchange to the joyous celebrations with our families, every moment was captured with such incredible warmth and authenticity. We are so in love with our gallery and cannot thank you enough for preserving our first step toward forever so beautifully.`,
+    signature: "Kishan Pandav"
   }
 ];
 

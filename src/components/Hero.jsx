@@ -28,14 +28,17 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           controls={false}
           controlsList="nodownload noplaybackrate noremoteplayback"
           disablePictureInPicture
           disableRemotePlayback
           draggable={false}
         >
-          <source src="/videos/starter.mp4" type="video/mp4" />
+          <source
+  src="https://res.cloudinary.com/qkfvnau3/video/upload/v1791125369/starter.mp4"
+  type="video/mp4"
+/>
         </video>
 
         <button

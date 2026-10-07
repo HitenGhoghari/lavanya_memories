@@ -1269,6 +1269,26 @@ video {
   text-align: center;
 }
 
+
+/* Even rows: image on the right → text aligns to the right */
+.testimonial-row:nth-child(even) .testimonial-content {
+  text-align: right;
+}
+
+/* Keep the signature on the same side as the text */
+.testimonial-row:nth-child(even) .testimonial-signature {
+  text-align: right;
+}
+
+/* Mobile overrides — always centered */
+@media (max-width: 768px) {
+  .testimonial-row:nth-child(even) .testimonial-content,
+  .testimonial-row:nth-child(even) .testimonial-signature {
+    text-align: center;
+  }
+}
+
+
 /* =========================================================
    TESTIMONIALS — mobile: always stack text-first
    ========================================================= */
@@ -1935,6 +1955,13 @@ video {
 
 .foot-contact a:hover { color: var(--sand); }
 
+.foot-location {
+  font-size: 15px;
+  letter-spacing: .01em;
+  color: rgba(255, 255, 255, .75);
+  margin-top: 2px;
+}
+
 .foot-note {
   margin: 0;
   font-size: 14px;
@@ -2077,6 +2104,39 @@ video {
   font-size: clamp(22px, 3vw, 38px);
   line-height: 1.35;
   letter-spacing: -.025em;
+}
+
+/* ---------- Story cover (top image) ---------- */
+
+.story-cover {
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story-cover img {
+  width: auto;
+  max-width: 100%;
+  max-height: 98vh;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* ---------- Story cover — mobile ---------- */
+
+@media (max-width: 720px) {
+  .story-cover {
+    margin-bottom: 24px;
+  }
+
+  .story-cover img {
+    max-height: 55vh;
+  }
 }
 
 .story-gallery {
@@ -2388,7 +2448,7 @@ video {
   background: var(--cream);
 }
 
-.ivory-track {
+/* .ivory-track {
   position: absolute;
   top: 0;
   left: 0;
@@ -2396,12 +2456,34 @@ video {
   display: flex;
   flex-direction: column;
   will-change: transform;
+} */
+
+.ivory-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  transform: translate3d(0, 0, 0);
+  /* No will-change — each copy has its own layer now */
 }
+
+/* .ivory-copy {
+  column-count: 3;
+  column-gap: 6px;
+  padding: 0 6px;
+} */
 
 .ivory-copy {
   column-count: 3;
   column-gap: 6px;
   padding: 0 6px;
+
+  /* Force each copy onto its own compositor layer */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .ivory-card {
@@ -2410,6 +2492,15 @@ video {
   margin-bottom: 6px;
 }
 
+/* .ivory-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+} */
+
 .ivory-card img {
   width: 100%;
   height: auto;
@@ -2417,6 +2508,10 @@ video {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
+
+  /* Hint for the compositor */
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
 }
 
 /* =========================================================

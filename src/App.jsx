@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { useState, useCallback } from "react";
 import useReveal from "./hooks/useReveal";
 import Preloader from "./components/Preloader";
