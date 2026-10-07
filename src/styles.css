@@ -2456,32 +2456,35 @@ video {
   display: flex;
   flex-direction: column;
   will-change: transform;
-} */
-
-.ivory-track {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  transform: translate3d(0, 0, 0);
-  /* No will-change — each copy has its own layer now */
 }
-
-/* .ivory-copy {
-  column-count: 3;
-  column-gap: 6px;
-  padding: 0 6px;
-} */
 
 .ivory-copy {
   column-count: 3;
   column-gap: 6px;
   padding: 0 6px;
+} */
 
-  /* Force each copy onto its own compositor layer */
-  transform: translateZ(0);
+.ivory-track {
+  position: absolute;
+  inset: 0;
+  /* No transform here — each copy is moved independently */
+}
+
+.ivory-copy {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  column-count: 3;
+  column-gap: 6px;
+  padding: 0 6px;
+
+  /* Give the browser everything it needs to isolate this element
+     into its own GPU layer. Each copy is now a small ~3000px layer
+     instead of one giant 9000px layer. */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   contain: layout style paint;
 }
@@ -2492,15 +2495,6 @@ video {
   margin-bottom: 6px;
 }
 
-/* .ivory-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
-  -webkit-user-drag: none;
-  pointer-events: none;
-} */
-
 .ivory-card img {
   width: 100%;
   height: auto;
@@ -2508,10 +2502,6 @@ video {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
-
-  /* Hint for the compositor */
-  content-visibility: auto;
-  contain-intrinsic-size: 400px;
 }
 
 /* =========================================================

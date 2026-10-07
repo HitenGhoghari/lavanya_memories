@@ -106,30 +106,23 @@
 // }
 
 
-import { useEffect, useRef, useState } from "react";
+
+import { useEffect, useRef } from "react";
 import { EDITORIAL_MOSAIC, photoSrc } from "../data";
 
-// Use fewer copies on small screens — 3 is overkill there
-const getCopies = () =>
-  typeof window !== "undefined" && window.innerWidth < 720 ? 2 : 3;
+const COPIES = 3;
 
 export default function Editorial() {
-  const trackRef = useRef(null);
-  const copyRef = useRef(null);
-
+  const copyRefs = useRef([]);
   const offsetRef = useRef(0);
   const targetRef = useRef(0);
   const copyHRef = useRef(0);
   const rafRef = useRef(0);
-  const lastActiveRef = useRef(0);
-
-  // Lazy-init so it's computed on the client
-  const [copies] = useState(getCopies);
+  const lastYRef = useRef(null);
 
   useEffect(() => {
-    const track = trackRef.current;
-    const firstCopy = copyRef.current;
-    if (!track || !firstCopy) return;
+    const firstCopy = copyRefs.current[0];
+    if (!firstCopy) return;
 
     const measure = () => {
       copyHRef.current = firstCopy.offsetHeight;
@@ -145,12 +138,14 @@ export default function Editorial() {
       targetRef.current = offsetRef.current;
     });
 
+    // --- Wheel ---
     const onWheel = (e) => {
       e.preventDefault();
       targetRef.current -= e.deltaY * 1.3;
     };
     window.addEventListener("wheel", onWheel, { passive: false });
 
+    // --- Touch drag ---
     let touchY = 0;
     const onTouchStart = (e) => {
       touchY = e.touches[0].clientY;
@@ -163,25 +158,12 @@ export default function Editorial() {
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: true });
 
-    // Softer easing + idle skipping = less GPU work
+    // --- Animation loop ---
     const tick = () => {
       const delta = targetRef.current - offsetRef.current;
+      offsetRef.current += delta * 0.18;
+
       const h = copyHRef.current;
-
-      // If we're basically there, don't repaint
-      if (Math.abs(delta) < 0.3) {
-        if (lastActiveRef.current !== 0) {
-          offsetRef.current = targetRef.current;
-          track.style.transform = `translate3d(0, ${offsetRef.current}px, 0)`;
-          lastActiveRef.current = 0;
-        }
-        rafRef.current = requestAnimationFrame(tick);
-        return;
-      }
-
-      lastActiveRef.current = 1;
-      offsetRef.current += delta * 0.22;
-
       if (h > 0) {
         while (offsetRef.current < -2 * h) {
           offsetRef.current += h;
@@ -193,7 +175,19 @@ export default function Editorial() {
         }
       }
 
-      track.style.transform = `translate3d(0, ${offsetRef.current}px, 0)`;
+      // Skip DOM writes if nothing moved meaningfully
+      const y = Math.round(offsetRef.current * 10) / 10;
+      if (y !== lastYRef.current) {
+        lastYRef.current = y;
+        const total = copyRefs.current.length;
+        for (let i = 0; i < total; i++) {
+          const el = copyRefs.current[i];
+          if (el) {
+            el.style.transform = `translate3d(0, ${y + i * h}px, 0)`;
+          }
+        }
+      }
+
       rafRef.current = requestAnimationFrame(tick);
     };
     rafRef.current = requestAnimationFrame(tick);
@@ -209,12 +203,14 @@ export default function Editorial() {
 
   return (
     <section className="ivory-editorial">
-      <div className="ivory-track" ref={trackRef}>
-        {Array.from({ length: copies }).map((_, copy) => (
+      <div className="ivory-track">
+        {Array.from({ length: COPIES }).map((_, copy) => (
           <div
             className="ivory-copy"
             key={copy}
-            ref={copy === 0 ? copyRef : null}
+            ref={(el) => {
+              copyRefs.current[copy] = el;
+            }}
           >
             {EDITORIAL_MOSAIC.map((img, i) => (
               <div className="ivory-card" key={`${copy}-${i}`}>
@@ -222,6 +218,7 @@ export default function Editorial() {
                   src={photoSrc(img)}
                   alt=""
                   loading={copy === 0 && i < 6 ? "eager" : "lazy"}
+                  decoding="async"
                 />
               </div>
             ))}
