@@ -113,118 +113,75 @@ import { EDITORIAL_MOSAIC, photoSrc } from "../data";
 const COPIES = 3;
 
 export default function Editorial() {
+  const containerRef = useRef(null);
   const copyRefs = useRef([]);
-  const offsetRef = useRef(0);
-  const targetRef = useRef(0);
   const copyHRef = useRef(0);
-  const rafRef = useRef(0);
-  const lastYRef = useRef(null);
 
   useEffect(() => {
+    const container = containerRef.current;
     const firstCopy = copyRefs.current[0];
-    if (!firstCopy) return;
+    if (!container || !firstCopy) return;
 
     const measure = () => {
       copyHRef.current = firstCopy.offsetHeight;
     };
-
     measure();
+
     const ro = new ResizeObserver(measure);
     ro.observe(firstCopy);
 
+    // Start in the middle copy so the user can scroll both ways immediately
     requestAnimationFrame(() => {
       measure();
-      offsetRef.current = -copyHRef.current;
-      targetRef.current = offsetRef.current;
+      container.scrollTop = copyHRef.current;
     });
 
-    // --- Wheel ---
-    const onWheel = (e) => {
-      e.preventDefault();
-      targetRef.current -= e.deltaY * 1.3;
-    };
-    window.addEventListener("wheel", onWheel, { passive: false });
-
-    // --- Touch drag ---
-    let touchY = 0;
-    const onTouchStart = (e) => {
-      touchY = e.touches[0].clientY;
-    };
-    const onTouchMove = (e) => {
-      const y = e.touches[0].clientY;
-      targetRef.current += y - touchY;
-      touchY = y;
-    };
-    window.addEventListener("touchstart", onTouchStart, { passive: true });
-    window.addEventListener("touchmove", onTouchMove, { passive: true });
-
-    // --- Animation loop ---
-    const tick = () => {
-      const delta = targetRef.current - offsetRef.current;
-      offsetRef.current += delta * 0.18;
-
+    // Silent infinite reset — runs on every scroll event
+    const onScroll = () => {
       const h = copyHRef.current;
-      if (h > 0) {
-        while (offsetRef.current < -2 * h) {
-          offsetRef.current += h;
-          targetRef.current += h;
-        }
-        while (offsetRef.current > 0) {
-          offsetRef.current -= h;
-          targetRef.current -= h;
-        }
-      }
+      if (!h) return;
+      const y = container.scrollTop;
 
-      // Skip DOM writes if nothing moved meaningfully
-      const y = Math.round(offsetRef.current * 10) / 10;
-      if (y !== lastYRef.current) {
-        lastYRef.current = y;
-        const total = copyRefs.current.length;
-        for (let i = 0; i < total; i++) {
-          const el = copyRefs.current[i];
-          if (el) {
-            el.style.transform = `translate3d(0, ${y + i * h}px, 0)`;
-          }
-        }
+      // Passed into the third copy — jump back up one copy (identical content)
+      if (y >= h * 2) {
+        container.scrollTop = y - h;
       }
-
-      rafRef.current = requestAnimationFrame(tick);
+      // Passed into the first copy — jump forward one copy
+      else if (y < h) {
+        container.scrollTop = y + h;
+      }
     };
-    rafRef.current = requestAnimationFrame(tick);
+
+    container.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("touchstart", onTouchStart);
-      window.removeEventListener("touchmove", onTouchMove);
-      cancelAnimationFrame(rafRef.current);
+      container.removeEventListener("scroll", onScroll);
       ro.disconnect();
     };
   }, []);
 
   return (
-    <section className="ivory-editorial">
-      <div className="ivory-track">
-        {Array.from({ length: COPIES }).map((_, copy) => (
-          <div
-            className="ivory-copy"
-            key={copy}
-            ref={(el) => {
-              copyRefs.current[copy] = el;
-            }}
-          >
-            {EDITORIAL_MOSAIC.map((img, i) => (
-              <div className="ivory-card" key={`${copy}-${i}`}>
-                <img
-                  src={photoSrc(img)}
-                  alt=""
-                  loading={copy === 0 && i < 6 ? "eager" : "lazy"}
-                  decoding="async"
-                />
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
+    <section className="ivory-editorial" ref={containerRef}>
+      {Array.from({ length: COPIES }).map((_, copy) => (
+        <div
+          className="ivory-copy"
+          key={copy}
+          ref={(el) => {
+            copyRefs.current[copy] = el;
+          }}
+        >
+          {EDITORIAL_MOSAIC.map((img, i) => (
+            <div className="ivory-card" key={`${copy}-${i}`}>
+              <img
+                src={photoSrc(img)}
+                alt=""
+                loading={copy === 0 && i < 6 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </div>
+          ))}
+        </div>
+      ))}
     </section>
   );
 }

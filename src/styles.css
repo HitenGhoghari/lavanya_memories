@@ -2440,12 +2440,29 @@ video {
    EDITORIAL — INFINITE MASONRY
    ========================================================= */
 
-.ivory-editorial {
+/* .ivory-editorial {
   position: fixed;
   inset: 0;
   z-index: 10;
   overflow: hidden;
   background: var(--cream);
+} */
+
+.ivory-editorial {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow-y: auto;              /* ← native vertical scroll */
+  overflow-x: hidden;
+  background: var(--cream);
+
+  /* Native momentum + no chain-scrolling to the page behind */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: auto;
+
+  /* Kill scroll anchoring so our scrollTop jumps don't fight the browser */
+  overflow-anchor: none;
 }
 
 /* .ivory-track {
@@ -2470,7 +2487,7 @@ video {
   /* No transform here — each copy is moved independently */
 }
 
-.ivory-copy {
+/* .ivory-copy {
   position: absolute;
   top: 0;
   left: 0;
@@ -2480,13 +2497,16 @@ video {
   column-gap: 6px;
   padding: 0 6px;
 
-  /* Give the browser everything it needs to isolate this element
-     into its own GPU layer. Each copy is now a small ~3000px layer
-     instead of one giant 9000px layer. */
   will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   contain: layout style paint;
+} */
+
+.ivory-copy {
+  column-count: 3;
+  column-gap: 6px;
+  padding: 0 6px;
 }
 
 .ivory-card {
