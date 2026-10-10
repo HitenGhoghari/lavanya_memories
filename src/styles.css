@@ -2956,13 +2956,14 @@ video {
   .films-hero-overlay {
     background: rgba(0, 0, 0, 0.5);
   }
-
   .films-hero {
-    height: 380px;
-    min-height: 380px;
+    height: auto;                    /* let aspect-ratio decide the height */
+    min-height: 0;
+    aspect-ratio: 1920 / 600;        /* same shape as the video */
   }
 
   .films-hero-video {
     object-position: center center;
+    object-fit: cover;
   }
 }

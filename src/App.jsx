@@ -67,9 +67,8 @@
 // }
 
 
-
 import { lazy, Suspense } from "react";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import useReveal from "./hooks/useReveal";
 import Preloader from "./components/Preloader";
 import Nav from "./components/Nav";
@@ -113,25 +112,57 @@ export default function App() {
   const [booted, setBooted] = useState(false);
   const finish = useCallback(() => setBooted(true), []);
   const path = usePath();
+  const prevPathRef = useRef(path);
+  const homeScrollRef = useRef(0);
 
   useReveal([path]);
 
-  // Only force scroll-to-top when landing on a project page.
-  // Everywhere else we leave scroll alone so the home page, photography,
-  // films etc. behave normally (smooth scroll, browser back, etc.)
+  // ── Track the home page scroll position on every scroll ─────────
+  // Because this runs continuously while the user is on `/`, the ref
+  // always holds the latest value — no timing games needed.
   useEffect(() => {
-  // Skip home — we never want to force-scroll the home page.
-  if (path === "/") return;
+    if (path !== "/") return;
+    const onScroll = () => {
+      homeScrollRef.current = window.scrollY;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [path]);
 
-  // Two frames: first for React to commit, second for the browser to
-  // lay out the new page. Then scroll — reliably lands at the top.
-  const id = requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, behavior: "auto" });
-    });
-  });
-  return () => cancelAnimationFrame(id);
-}, [path]);
+  // ── Route change: decide where to scroll ────────────────────────
+  useEffect(() => {
+    const prevPath = prevPathRef.current;
+    prevPathRef.current = path;
+
+    // Coming back to home → restore where the user left off
+    if (path === "/" && prevPath !== "/") {
+      const target = homeScrollRef.current;
+      if (!target) return;
+
+      // Home has lazy-loaded images; keep re-applying the target
+      // until the page is tall enough to actually reach it.
+      let attempts = 0;
+      const tryRestore = () => {
+        window.scrollTo({ top: target, behavior: "auto" });
+        if (window.scrollY < target - 2 && attempts < 15) {
+          attempts++;
+          setTimeout(tryRestore, 80);
+        }
+      };
+      requestAnimationFrame(() => requestAnimationFrame(tryRestore));
+      return;
+    }
+
+    // Every other route (photography, films, faq, project, …) → top
+    if (path !== "/") {
+      const id = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, behavior: "auto" });
+        });
+      });
+      return () => cancelAnimationFrame(id);
+    }
+  }, [path]);
 
   const Page = path.startsWith("/project/") ? Project : ROUTES[path] || Home;
 
