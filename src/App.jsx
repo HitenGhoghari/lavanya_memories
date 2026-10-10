@@ -68,7 +68,6 @@
 
 
 
-
 import { lazy, Suspense } from "react";
 import { useState, useCallback, useEffect } from "react";
 import useReveal from "./hooks/useReveal";
@@ -89,8 +88,6 @@ import FAQ from "./pages/FAQ";
 import Enquiry from "./pages/Enquiry";
 import Project from "./pages/Project";
 
-// Everything that used to be the whole site is now "the home page" -
-// the section you land on at "/".
 function Home() {
   return (
     <>
@@ -103,8 +100,6 @@ function Home() {
   );
 }
 
-// Which component to show for each hero-tag link.
-// To add another page later: build the page, then add one line here.
 const ROUTES = {
   "/": Home,
   "/photography": Photography,
@@ -119,20 +114,25 @@ export default function App() {
   const finish = useCallback(() => setBooted(true), []);
   const path = usePath();
 
-  // Re-run the fade-in-on-scroll watcher every time the page changes,
-  // otherwise elements on a newly opened page never get the "in" class.
   useReveal([path]);
 
-  // Scroll to top every time the route changes. behaviour: 'auto' means
-  // instant — no smooth animation competing with the page swap. This
-  // runs after React has committed the new page to the DOM, so it
-  // always lands at the top of the new page, never in the middle.
+  // Only force scroll-to-top when landing on a project page.
+  // Everywhere else we leave scroll alone so the home page, photography,
+  // films etc. behave normally (smooth scroll, browser back, etc.)
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }, [path]);
+  // Skip home — we never want to force-scroll the home page.
+  if (path === "/") return;
 
-  // "/project/<anything>" is not a fixed key in ROUTES, so it is
-  // checked separately. Anything unrecognised falls back to Home.
+  // Two frames: first for React to commit, second for the browser to
+  // lay out the new page. Then scroll — reliably lands at the top.
+  const id = requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "auto" });
+    });
+  });
+  return () => cancelAnimationFrame(id);
+}, [path]);
+
   const Page = path.startsWith("/project/") ? Project : ROUTES[path] || Home;
 
   return (
