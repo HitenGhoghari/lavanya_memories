@@ -47,7 +47,7 @@ export default function Nav() {
           { to: "/editorial", label: "Editorial" },
           { to: "/films", label: "Films" },
           { to: "/faq", label: "FAQ" },
-          { to: '/enquiry', label: 'Enquire'},
+          { to: '/enquiry', label: 'Enquiry'},
         ].map((l) => (
           <AppLink key={l.to} to={l.to} onClick={() => setOpen(false)}>
             {l.label}

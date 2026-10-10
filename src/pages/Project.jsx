@@ -81,27 +81,13 @@ export default function Project() {
       <header className="story-header">
         <h2>{project.title}</h2>
         <div className="story-header-p">
-          <p>
-            Some souls just seem to recognize each other the moment they meet.
-            Vishal and Trupti's romance isn’t about being the loudest in the
-            room; it’s a beautifully quiet, tender love that radiates genuine
-            comfort. Out in the vast, breathing landscape of the outdoors, their
-            unspoken chemistry takes center stage. You can feel the calm,
-            infinite depth of their relationship in every look he gives her, and
-            every time she reaches for him.
-          </p>
-          <p>
-            Their timeless style reflects their partnership perfectly—her soft,
-            radiant grace weaving seamlessly into his calm, quiet strength.
-            Unposed and completely authentic, their presence together feels like
-            a scene pulled from a classic film. Through the warmth they share
-            and their easy togetherness.
-          </p>
-          <p>
-            Vishal and Trupti prove that true love is found in the stillness,
-            the unspoken trust, and the simple beauty of two hearts finding home
-            in one another.
-          </p>
+          {Array.isArray(project.story) && project.story.length > 0 ? (
+            project.story.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))
+          ) : (
+            <p>{project.description}</p>
+          )}
         </div>
       </header>
 

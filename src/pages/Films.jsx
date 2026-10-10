@@ -11,6 +11,23 @@ export default function Films() {
           HERO
           ============================================================ */}
       <header className="films-hero">
+  <video
+  className="films-hero-video"
+  autoPlay
+  muted
+  loop
+  playsInline
+  preload="metadata"
+  poster="https://res.cloudinary.com/p4bs69b5/video/upload/so_0,c_fill,ar_1920:600,w_1920,q_auto:best/cinamatic_back.jpg"
+>
+  <source
+    src="https://res.cloudinary.com/p4bs69b5/video/upload/c_fill,ar_1920:600,w_1920,q_auto:best,br_8m,vc_h264/cinamatic_back.mp4"
+    type="video/mp4"
+  />
+</video>
+
+  <div className="films-hero-overlay" aria-hidden="true" />
+
   <div className="films-hero-text">
     <span className="films-hero-line">Cinematic</span>
     <span className="films-hero-line films-hero-line-2">Memories</span>
