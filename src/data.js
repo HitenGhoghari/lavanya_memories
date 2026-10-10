@@ -27,32 +27,47 @@ export const PHOTOS = [
     place: "Surat",
   },
   {
-    img: "vishal02",
+    img: "LAVANYA_33_copy",
     title: "Vishal-Trupti",
     place: "Surat",
   },
   {
-    img: "vishal03",
+    img: "LAVANYA_70_copy",
     title: "Vishal-Trupti",
     place: "Surat",
   },
   {
-    img: "vishal04",
+    img: "LAVANYA_333_copy",
     title: "Vishal-Trupti",
     place: "Surat",
   },
   {
-    img: "vishal05",
+    img: "LAVANYA_61_copy",
     title: "Vishal-Trupti",
     place: "Surat",
   },
   {
-    img: "vishal06",
+    img: "LAVANYA_81_copy",
     title: "Vishal-Trupti",
     place: "Surat",
   },
   {
-    img: "vishal07",
+    img: "LAVANYA_67_copy",
+    title: "Vishal-Trupti",
+    place: "Surat",
+  },
+  {
+    img: "LAVANYA_7_copy",
+    title: "Vishal-Trupti",
+    place: "Surat",
+  },
+  {
+    img: "LAVANYA_220_copy",
+    title: "Vishal-Trupti",
+    place: "Surat",
+  },
+  {
+    img: "LAVANYA_215_copy",
     title: "Vishal-Trupti",
     place: "Surat",
   },
@@ -143,9 +158,22 @@ export const PHOTOS = [
   },
 ];
 
-// Turns 'cloud-line' into the path the browser should load.
+// ============================================================
+//  CLOUDINARY
+//  Paste your Cloud name below (from your Cloudinary dashboard).
+// ============================================================
+
+const CLOUD_NAME = "p4bs69b5";
+const CLOUD_BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+
+// Photos — auto WebP, auto quality, capped at 1600px wide
 export function photoSrc(name) {
-  return "/images/" + name + ".jpg";
+  return `${CLOUD_BASE}/q_auto,f_auto,w_1600/${name}.jpg`;
+}
+
+// Assets (logos, icons) — auto WebP, auto quality, original size
+export function assetSrc(name) {
+  return `${CLOUD_BASE}/q_auto,f_auto/${name}`;
 }
 
 export const PORTRAIT = "small-shrine"; // photo used in the About section
@@ -163,13 +191,15 @@ export const PROJECTS = [
     description:
       "The temple after the crowd thins out - lit by fire, not floodlight, for the last few hours before the gates close.",
     photos: [
-      "vishal01",
-      "vishal02",
-      "vishal03",
-      "vishal04",
-      "vishal05",
-      "vishal06",
-      "vishal07",
+      "LAVANYA_33_copy",
+      "LAVANYA_70_copy",
+      "LAVANYA_333_copy",
+      "LAVANYA_61_copy",
+      "LAVANYA_81_copy",
+      "LAVANYA_67_copy",
+      "LAVANYA_7_copy",
+      "LAVANYA_220_copy",
+      "LAVANYA_215_copy",
     ],
   },
   {
@@ -268,7 +298,7 @@ export const YOUTUBE_VIDEOS = [
 export const TESTIMONIALS = [
   {
     name: "Piyush & Hiral",
-    image: "vishal07",
+    image: "KU_04760_copy",
     projectSlug: "rest-in-pahad",
     text: `We cannot thank the team at Lavanya Memories enough for capturing our engagement so beautifully. From the very first click, they made us feel incredibly comfortable, allowing our true chemistry to shine through effortlessly. The photos and the teaser film are absolute magic—they perfectly encapsulate the excitement, love, and anticipation of this new chapter in our lives. Every single frame feels so authentic and true to who we are as a couple. If this is how our engagement turned out, we simply cannot wait for the wedding! Thank you for giving us the most beautiful start to our forever.`,
     signature: "Piyush Jikadara"

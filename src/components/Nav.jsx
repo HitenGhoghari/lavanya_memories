@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { SITE } from "../data";
+import { SITE, assetSrc } from '../data'
 import { AppLink } from "../router";
 
 export default function Nav() {
@@ -24,7 +24,7 @@ export default function Nav() {
     <>
       <nav className="nav">
         <a className="mark" href="/" onClick={() => setOpen(false)}>
-          <img src="/images/logo1.png" alt={SITE.name} id="home_logo" />
+          <img src={assetSrc('logo1.png')} alt={SITE.name} id="home_logo" />
         </a>
 
         <AppLink className="nav-mail" to="/enquiry">Enquire</AppLink>
