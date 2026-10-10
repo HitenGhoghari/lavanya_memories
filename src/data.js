@@ -22,130 +22,75 @@ export const SITE = {
 // without .jpg — for example 'cloud-line' means /images/cloud-line.jpg
 export const PHOTOS = [
   {
+    img: "KU_05031",
+    title: "Piyush-Hiral",
+    place: "Surat",
+  },
+  {
     img: "vishal01",
     title: "Vishal-Trupti",
     place: "Surat",
   },
   {
-    img: "vishal02",
+    img: "KU_06356",
+    title: "Dharmesh-Kirti",
+    place: "Surat",
+  },
+  {
+    img: "KU_04609_copy",
+    title: "Kishan-Jyoti",
+    place: "Surat",
+  },
+  {
+    img: "KU_03400_copy",
+    title: "Sunil-Vaishali",
+    place: "Surat",
+  },
+
+  {
+    img: "KU_04869",
+    title: "Piyush-Hiral",
+    place: "Surat",
+  },
+  {
+    img: "LAVANYA_67_copy",
     title: "Vishal-Trupti",
     place: "Surat",
   },
   {
-    img: "vishal03",
-    title: "Vishal-Trupti",
+    img: "KU_06344",
+    title: "Dharmesh-Kirti",
     place: "Surat",
   },
   {
-    img: "vishal04",
-    title: "Vishal-Trupti",
+    img: "KU_04864_copy",
+    title: "Kishan-Jyoti",
     place: "Surat",
   },
   {
-    img: "vishal05",
-    title: "Vishal-Trupti",
+    img: "KU_03361_copy",
+    title: "Sunil-Vaishali",
     place: "Surat",
-  },
-  {
-    img: "vishal06",
-    title: "Vishal-Trupti",
-    place: "Surat",
-  },
-  {
-    img: "vishal07",
-    title: "Vishal-Trupti",
-    place: "Surat",
-  },
-  {
-    img: "kedarnath-night",
-    title: "Night at the shrine",
-    place: "Kedarnath",
-  },
-  {
-    img: "blue-hour-ridge",
-    title: "Blue hour on the ridge",
-    place: "Kedarnath",
-  },
-  {
-    img: "cloud-line",
-    title: "The cloud line",
-    place: "Garhwal",
-  },
-  {
-    img: "above-the-treeline",
-    title: "Above the treeline",
-    place: "Chopta",
-  },
-  {
-    img: "fire-and-stone",
-    title: "Fire and stone",
-    place: "Kedarnath",
-  },
-  {
-    img: "road-that-bends",
-    title: "The road that bends",
-    place: "Chopta",
-  },
-  {
-    img: "camp-below-peaks",
-    title: "Camp below the peaks",
-    place: "Kedarnath",
-  },
-  {
-    img: "sitting-with-it",
-    title: "Sitting with it",
-    place: "Chopta",
-  },
-  {
-    img: "snow-behind",
-    title: "Snow behind the roof",
-    place: "Kedarnath",
-  },
-  {
-    img: "prayer-flags",
-    title: "Prayer flags, no hurry",
-    place: "Garhwal",
-  },
-  {
-    img: "one-walker",
-    title: "One walker, whole valley",
-    place: "Chopta",
-  },
-  {
-    img: "stone-on-ridge",
-    title: "Stone on the ridge",
-    place: "Tungnath",
-  },
-  {
-    img: "rest-in-pahad",
-    title: "Rest in pahad",
-    place: "Chopta",
-  },
-  {
-    img: "small-shrine",
-    title: "The small shrine",
-    place: "Kedarnath",
-  },
-  {
-    img: "waiting-outside",
-    title: "Waiting outside",
-    place: "Kedarnath",
-  },
-  {
-    img: "tungnath",
-    title: "Tungnath, before the rain",
-    place: "Tungnath",
-  },
-  {
-    img: "the-stop",
-    title: "The stop on the way",
-    place: "On the road",
   },
 ];
 
-// Turns 'cloud-line' into the path the browser should load.
+// ============================================================
+//  CLOUDINARY
+//  Paste your Cloud name below (from your Cloudinary dashboard).
+// ============================================================
+
+const CLOUD_NAME = "p4bs69b5";
+const CLOUD_BASE = `https://res.cloudinary.com/${CLOUD_NAME}/image/upload`;
+
+// Photos — auto WebP, auto quality, capped at 1600px wide
 export function photoSrc(name) {
-  return "/images/" + name + ".jpg";
+  return `${CLOUD_BASE}/q_auto,f_auto,w_1600/${name}.jpg`;
+  // return `${CLOUD_BASE}/${name}.jpg`;
+}
+
+// Assets (logos, icons) — auto WebP, auto quality, original size
+export function assetSrc(name) {
+  return `${CLOUD_BASE}/q_auto,f_auto/${name}`;
 }
 
 export const PORTRAIT = "small-shrine"; // photo used in the About section
@@ -154,83 +99,602 @@ export const PORTRAIT = "small-shrine"; // photo used in the About section
 // page. Reuses the same photos already in PHOTOS above, grouped into stories.
 export const PROJECTS = [
   {
+    slug: "Piyush-Hiral",
+    type: "Photography",
+    title: "Piyush&Hiral",
+    location: "Surat",
+    year: 2024,
+    cover: "piyush_cover",
+    description:
+      "The temple after the crowd thins out - lit by fire, not floodlight, for the last few hours before the gates close.",
+    photos: [
+      "KU_04917",
+      "PH_15",
+      "PH_1",
+      "jp_ai",
+      "PH_14",
+      "KU_02972_copy",
+      "PH_6",
+      "PH_16",
+      "PH_5",
+      "PH_10",
+      "PH_3",
+      "KU_02863_copy",
+
+
+
+
+
+
+      "IMG_8680ai",
+      "PH_7",
+      "PH_4",
+      "PH_2",
+      "KU_02848_copy",
+      "PH_13",
+      "KU_04836",
+      "KU_04875_copy",
+      "PH_8",
+      "KU_04839_copy",
+      "KU_02910_copy",
+      "KU_02904_copy",
+      "KU_02753_copy",
+      "KU_04863_copy",
+      "KU_02727_copy",
+      "KU_04860_copy",
+      "KU_02891_copy",
+      "PH_11",
+      "KU_05060_copy",
+      "KU_04839",
+      "KU_04771_copy",
+      "KU_05115",
+      "KU_02732_copy",
+      "KU_04863",
+      "KU_04926_copy",
+      "KU_02786_copy",
+
+
+
+
+
+
+
+      "KU_02725_copy",
+      "KU_02783_copy",
+      "KU_02722_copy",
+      "PH_12",
+      "KU_02811_copy",
+      "KU_04884",
+      "KU_02782_copy",
+      "KU_02719_copy",
+      "KU_02734_copy",
+      "KU_02699_copy",
+      "KU_04891",
+      "KU_04876",
+      "KU_02724_copy",
+      "KU_02815_copy",
+      "KU_04878",
+      "KU_04910",
+      "KU_05057",
+      "KU_04873",
+      "KU_04893",
+      "KU_04902",
+      "KU_02825_copy",
+      "KU_02731_copy",
+      "PH_9",
+      "KU_04850_copy",
+      "KU_04770",
+      "KU_05053",
+      "KU_04765",
+      "KU_04895",
+      "KU_02747_copy",
+      "KU_02771_copy",
+      "KU_05087_copy",
+      "KU_02808_copy",
+      "KU_04869",
+      "KU_02703_copy",
+      "KU_02776_copy",
+      "KU_04767",
+      "KU_04947",
+      "KU_05058",
+      "KU_02790_copy",
+      "KU_02838_copy",
+      "KU_02765_copy",
+      "KU_04751",
+      "KU_05112",
+      "KU_05094",
+
+
+
+
+
+
+      "KU_04899",
+      "KU_05075",
+      "KU_04923",
+      "KU_05031",
+      "KU_05087",
+      "KU_04758_copy",
+      "KU_04919",
+      "KU_04896",
+      "KU_02823_copy",
+      "KU_04913",
+      "KU_04915",
+      "KU_04730",
+      "KU_04758",
+      "KU_04749_copy",
+      "KU_04760",
+      "KU_04972",
+      "KU_04752",
+      "KU_02845_copy",
+      "KU_05011_copy",
+      "KU_04742",
+      "KU_04736",
+      "KU_04738",
+      "22",
+      "23",
+      "18",
+
+
+
+
+
+
+      "19",
+      "KU_05061",
+      "KU_05056",
+      "KU_04948",
+      "KU_04920",
+      "KU_04908",
+      "KU_04898",
+      "KU_04872",
+      "KU_04857",
+      "KU_04937",
+    ],
+  },
+  {
     slug: "Vishal-Trupti",
     type: "Photography",
     title: "Vishal&Trupti",
     location: "Surat",
     year: 2024,
-    cover: "vishal01",
+    cover: "lavanya_01",
     description:
       "The temple after the crowd thins out - lit by fire, not floodlight, for the last few hours before the gates close.",
     photos: [
       "vishal01",
-      "vishal02",
-      "vishal03",
-      "vishal04",
-      "vishal05",
-      "vishal06",
-      "vishal07",
+      "LAVANYA_33_copy",
+      "LAVANYA_70_copy",
+      "LAVANYA_333_copy",
+      "LAVANYA_61_copy",
+      "LAVANYA_81_copy",
+      "LAVANYA_67_copy",
+      "LAVANYA_7_copy",
+      "LAVANYA_80_copy",
+      "lavanya_004",
+
+
+
+
+
+      "LAVANYA_220_copy",
+      "LAVANYA_346_copy",
+      "lavanya_08",
+      "LAVANYA_195_copy",
+      "lavanya_06",
+      "lavanya_04",
+      "lavanya_02",
+      "LAVANYA_215_copy",
+      "lavanya_01",
+      "LAVANYA_15_copy",
+      "LAVANYA_116_copy",
+      "lavanya_006",
+
+
+
+
+      "lavanya_005",
+      "lavanya_002",
+      "LAVANYA_73_copy",
+      "LAVANYA_340_copy",
+      "LAVANYA_294_copy",
+      "LAVANYA_162_copy",
+      "LAVANYA_188_copy",
+      "LAVANYA_324_copy",
+      "LAVANYA_229_copy",
+      "LAVANYA_311_copy",
+      "FINAL_02_jpg",
+      "FINAL_01_jpg",
+      "LAVANYA_895_copy",
     ],
   },
   {
-    slug: "sunil-vaishali",
+    slug: "Sunil-Vaishali",
     type: "Photography",
     title: "Sunil&Vaishali",
     location: "Surat",
     year: 2025,
-    cover: "sunil01",
+    cover: "05sunil",
     description:
       "The temple after the crowd thins out - lit by fire, not floodlight, for the last few hours before the gates close.",
     photos: [
-      "kedarnath-night",
-      "fire-and-stone",
-      "snow-behind",
-      "small-shrine",
+      "KU_03408_copy",
+      "KU_03411_copy",
+      "KU_03422_copy",
+      "KU_03436_copy",
+      "KU_03402_copy",
+      "KU_03352_copy",
+      "KU_03384_copy",
+      "KU_03394_copy",
+      "KU_03355_copy",
+      "KU_03400_copy",
+
+
+
+
+
+      "KU_03387_copy",
+      "KU_03361_copy",
+      "KU_03363_copy",
+      "KU_03372_copy",
+      "KU_04295_copy",
+      "KU_03356_copy",
+      "KU_04342_copy",
+      "KU_04228_copy",
+      "KU_03353_copy",
+      "KU_04303_copy",
+      "KU_04356_copy",
+      "KU_04345_copy",
+      "KU_04350_copy",
+      "KU_04336_copy",
+      "KU_04220_copy",
+      "KU_04320_copy",
+      "KU_04311_copy",
+
+
+
+
+
+
+      "KU_04281_copy",
+      "KU_04275_copy",
+      "KU_04273_copy",
+      "KU_04213_copy",
+      "KU_04202_copy",
+      "KU_04210_copy_2",
+      "KU_04222_copy",
+      "KU_03623_copy",
+      "KU_03635_copy",
+      "KU_03665_copy",
+      "KU_04209_copy",
+      "KU_03640_copy",
+      "KU_03592_copy",
+      "KU_03584_copy",
+      "KU_03538_copy",
+      "KU_03573_copy",
+      "KU_03529_copy",
+
+
+
+
+
+      "KU_03562_copy",
+      "KU_03545_copy",
+      "KU_03515_copy",
+      "KU_03493_copy",
+      "KU_03480_copy",
+      "KU_03465_copy",
+      "KU_03475_copy",
+      "KU_03471_copy",
+      "KU_03462_copy",
+      "KU_03350_copy",
+      "KU_03348_copy",
+      "KU_03642_copy",
+      "KU_03661_copy",
+      "KU_03359_copy",
+      "KU_03430_copy",
+      "KU_03434_copy",
+
+
+
+
+
+      "KU_03454_copy",
+      "KU_04205_copy",
+      "KU_04333_copy",
+      "KU_04224_copy",
+      "KU_04196_copy",
+      "KU_03648_copy",
+      "KU_03521_copy",
+      "06",
+      "KU_03489_copy",
+      "21sunil",
+      "17sunil",
+      "23sunil",
+      "20sunil",
+      "18sunil",
+      "22sunil",
+      "13sunil",
+      "02sunil",
+
+
+
+
+
+      "16sunil",
+      "08sunil",
+      "15sunil",
+      "12sunil",
+      "04sunil",
+      "09sunil",
+      "KU_03542_copysunil",
+      "19sunil",
+      "KU_03506_copysunil",
+      "KU_03503_copysunil",
+      "07sunil",
+      "11sunil",
+      "01sunil",
+      "03sunil",
+      "14sunil",
+      "10sunil",
+      "05sunil",
+      "02_storysunil",
+      "01_storysunil",
     ],
   },
   {
-    slug: "the-ridge-above-chopta",
+    slug: "Dharmesh-Kirti",
     type: "Photography",
-    title: "The ridge above Chopta",
-    location: "Chopta",
+    title: "Dharmesh&Kirti",
+    location: "Surat",
     year: 2025,
-    cover: "blue-hour-ridge",
+    cover: "KU_06428",
     description:
       "Four hours above the treeline, where the valley opens up and the only sound left is wind.",
-    photos: ["blue-hour-ridge", "cloud-line", "one-walker", "camp-below-peaks"],
+    photos: [
+      "KU_06503",
+      "KU_06497",
+      "KU_06501",
+      "KU_06493",
+      "KU_06491",
+      "KU_06490",
+      "KU_06488",
+      "KU_06484",
+      "KU_06481",
+      "KU_06480",
+      "KU_06467",
+      "KU_06449",
+      "KU_06434",
+
+
+
+
+
+      "KU_06433",
+      "KU_06428",
+      "KU_06426",
+      "KU_06424",
+      "KU_06423",
+      "KU_06418",
+      "KU_06408",
+      "KU_06416",
+      "KU_06409",
+      "KU_06407",
+      "KU_06404",
+      "KU_06398",
+      "KU_06394",
+      "KU_06384",
+
+
+
+
+
+
+
+      "KU_06393",
+      "KU_06383",
+      "KU_06386",
+      "KU_06381",
+      "KU_06380",
+      "KU_06378",
+      "KU_06377",
+      "KU_06373",
+      "KU_06372",
+      "KU_06367",
+      "KU_06370",
+      "KU_06368",
+      "KU_06365",
+      "KU_06363",
+      "KU_06362",
+      "KU_06361",
+      "KU_06358",
+
+
+
+
+
+
+
+
+
+      "KU_06356",
+      "KU_06355",
+      "KU_06347",
+      "KU_06351",
+      "KU_06346",
+      "KU_06348",
+      "KU_06344",
+      "KU_06341",
+      "KU_07017",
+      "KU_07062",
+      "KU_07048",
+      "KU_07052",
+      "KU_07001",
+      "KU_07016",
+      "KU_07009",
+      "KU_07053",
+      "KU_07008",
+      "KU_07013",
+      "KU_07047",
+      "KU_07044",
+      "KU_07038",
+      "KU_07031",
+      "KU_07021",
+      "KU_07043",
+      "KU_07024",
+      "KU_07002",
+      "KU_06998",
+
+
+
+
+
+
+
+
+      "KU_07034",
+      "KU_07007",
+      "KU_07041",
+      "KU_07023",
+      "KU_07037",
+      "KU_07006",
+      "KU_07022",
+      "KU_07042",
+      "KU_07020",
+      "KU_06992",
+      "KU_07019",
+      "post14",
+      "post09",
+      "KU_06990",
+      "post05",
+      "post17",
+
+
+
+
+
+
+      "post16",
+      "post13",
+      "post10",
+      "post08",
+      "post06",
+      "post04",
+      "post12",
+      "post02",
+      "post15",
+      "post07",
+      "post03",
+      "post01",
+      "KU_06567",
+      "KU_06565",
+      "KU_06564",
+      "KU_06562",
+      "KU_06556",
+      "KU_06554",
+
+
+
+
+
+
+
+      "KU_06552",
+      "KU_06550",
+      "KU_06543",
+      "KU_06542",
+      "KU_06541",
+      "KU_06539",
+      "KU_06535",
+      "KU_06516",
+      "KU_06532",
+      "KU_06531",
+      "KU_06521",
+      "KU_06512",
+      "KU_06514",
+      "KU_06510",
+      "KU_06502",
+      "KU_06509",
+      "KU_06507",
+    ],
   },
   {
-    slug: "tungnath-before-the-rain",
+    slug: "Kishan-Jyoti",
     type: "Photography",
-    title: "Tungnath, before the rain",
-    location: "Tungnath",
+    title: "Kishan&Jyoti",
+    location: "Surat",
     year: 2025,
-    cover: "tungnath",
+    cover: "KU_04696_copy",
     description:
       "A short window of clear sky at the highest Shiva temple in the world, before the cloud came back in.",
-    photos: ["tungnath", "stone-on-ridge"],
-  },
-  {
-    slug: "rest-in-pahad",
-    type: "Editorial",
-    title: "Rest in pahad",
-    location: "Chopta",
-    year: 2025,
-    cover: "rest-in-pahad",
-    description:
-      "Portraits shot between the walking, not during it - the ten minutes people actually sit still.",
-    photos: ["rest-in-pahad", "sitting-with-it", "waiting-outside"],
-  },
-  {
-    slug: "the-road-that-bends",
-    type: "Editorial",
-    title: "The road that bends",
-    location: "On the road",
-    year: 2025,
-    cover: "road-that-bends",
-    description:
-      "The drive counts as part of the trip. This is what it looked like.",
-    photos: ["road-that-bends", "the-stop", "prayer-flags"],
+    photos: [
+      "01",
+      "03",
+      "KU_04713_copy",
+      "KU_04646_copy",
+      "KU_04647_copy",
+      "KU_04710_copy",
+      "KU_04627_copy",
+      "KU_04639_copy",
+      "KU_04895_copy",
+      "KU_04660_copy",
+      "KU_04694_copy",
+      "KU_04903_copy",
+
+
+
+
+
+
+
+
+
+
+
+      "KU_04788_copy",
+      "KU_04788_copy",
+      "KU_04897_copy",
+      "KU_04599_copy",
+      "KU_04925_copy",
+      "KU_04950_copy",
+      "KU_04692_copy",
+      "KU_04696_copy",
+      "KU_04855_copy",
+      "KU_04691_copy",
+      "KU_04602_copy",
+      "KU_04841_copy",
+      "KU_04951_copy",
+      "KU_04609_copy",
+      "KU_04785_copy",
+      "02",
+      "KU_04918_copy",
+
+
+
+
+
+
+
+
+      "KU_04780_copy",
+      "KU_04864_copy",
+      "KU_04834_copy",
+      "KU_04810_copy",
+      "KU_04797_copy",
+      "KU_04779_copy",
+      "03_copy",
+      "04",
+      "11",
+      "13",
+      "12",
+      "08",
+      "16",
+      "10",
+      "09",
+      "14",
+      "15",
+      "07",
+    ],
   },
 ];
 
@@ -268,36 +732,36 @@ export const YOUTUBE_VIDEOS = [
 export const TESTIMONIALS = [
   {
     name: "Piyush & Hiral",
-    image: "vishal07",
-    projectSlug: "rest-in-pahad",
+    image: "piyush_cover",
+    projectSlug: "Piyush-Hiral",
     text: `We cannot thank the team at Lavanya Memories enough for capturing our engagement so beautifully. From the very first click, they made us feel incredibly comfortable, allowing our true chemistry to shine through effortlessly. The photos and the teaser film are absolute magic—they perfectly encapsulate the excitement, love, and anticipation of this new chapter in our lives. Every single frame feels so authentic and true to who we are as a couple. If this is how our engagement turned out, we simply cannot wait for the wedding! Thank you for giving us the most beautiful start to our forever.`,
     signature: "Piyush Jikadara"
   },
   {
     name: "Vishal & Trupti",
-    image: "vishal01", // Replace with your actual image file name
+    image: "lavanya_01",
     projectSlug: "Vishal-Trupti",
     text: `Booking Lavanya Memories for our engagement was simply the best decision we made to kick off our wedding journey. We were initially a little camera-shy, but the team’s calm and friendly energy instantly put us at ease. They didn't force us into stiff poses; instead, they let us just be ourselves and somehow captured the exact magic of our relationship. The photos and the short film are filled with genuine laughter, quiet glances, and so much love. Looking at the final gallery feels like reliving that beautiful day all over again. Thank you, Lavanya Memories, for giving us the most perfect memories to hold onto forever!`,
     signature: "Vishal Ghoghari"
   },
   {
     name: "Sunil & Vaishali",
-    image: "sunil01",
-    projectSlug: "kedarnath-in-the-dark",
+    image: "05sunil",
+    projectSlug: "Sunil-Vaishali",
     text: `We are endlessly grateful to Lavanya Memories for capturing our baby shower with so much tenderness and care. As we prepare to welcome our little one, this milestone meant the world to us, and the team documented it perfectly. They focused on the raw emotions, the happy tears, and the overwhelming love radiating from our family and friends. None of the photos feel staged or forced; they just reflect pure, genuine anticipation. We will cherish these beautiful memories forever as we step into this new chapter of parenthood. Thank you for giving us a treasure we can one day share with our baby!`,
     signature: "Sunil Kachariya"
   },
   {
     name: "Dharmesh & Kirti",
-    image: "kdk01", // Replace with your actual image
-    projectSlug: "the-road-that-bends",
+    image: "KU_06428",
+    projectSlug: "Dharmesh-Kirti",
     text: `We couldn't be happier with how Lavanya Memories captured our baby shower. This is such a monumental milestone for us as we prepare to welcome our little one, and the team managed to document every ounce of love, anticipation, and joy in the room. They perfectly caught the intimate, candid moments with our family and friends without making anything feel posed or unnatural. Looking at these beautiful photos brings back all the happy tears and excitement we felt that day. Thank you for giving us such precious memories that we will one day share with our baby!`,
     signature: "Dharmesh Kalsariya"
   },
   {
     name: "Kishan & Jyoti",
-    image: "kishan01",
-    projectSlug: "Vishal-Trupti",
+    image: "KU_04696_copy",
+    projectSlug: "Kishan-Jyoti",
     text: `Choosing Lavanya Memories for our engagement was an absolute blessing. We wanted our photos to reflect our true bond without looking overly staged, and the team delivered exactly that. They created such a relaxed and fun atmosphere that we completely forgot the cameras were even there. From our nervous smiles before the ring exchange to the joyous celebrations with our families, every moment was captured with such incredible warmth and authenticity. We are so in love with our gallery and cannot thank you enough for preserving our first step toward forever so beautifully.`,
     signature: "Kishan Pandav"
   }
@@ -344,12 +808,254 @@ export const INSTAGRAM_POSTS = [
 //  Mix portrait (tall) and landscape (wide) for the best look.
 // ============================================================
 export const EDITORIAL_MOSAIC = [
-  "vishal01", "kedarnath-night", "blue-hour-ridge", "vishal02",
-  "fire-and-stone", "one-walker", "vishal03", "cloud-line",
-  "vishal04", "tungnath", "sitting-with-it", "road-that-bends",
-  "vishal05", "snow-behind", "camp-below-peaks", "vishal06",
-  "vishal07", "small-shrine", "waiting-outside", "the-stop",
-  "above-the-treeline", "prayer-flags", "rest-in-pahad", "stone-on-ridge",
+      "KU_04917",
+      "PH_15",
+      "PH_1",
+      "jp_ai",
+      "PH_14",
+      "KU_02972_copy",
+      "PH_6",
+      "PH_16",
+      "PH_5",
+      "PH_10",
+      "PH_3",
+      "KU_02863_copy",
+
+
+      "vishal01",
+      "LAVANYA_33_copy",
+      "LAVANYA_70_copy",
+      "LAVANYA_333_copy",
+      "LAVANYA_61_copy",
+      "LAVANYA_81_copy",
+      "LAVANYA_67_copy",
+      "LAVANYA_7_copy",
+      "LAVANYA_80_copy",
+      "lavanya_004",
+
+
+      "KU_03408_copy",
+      "KU_03411_copy",
+      "KU_03422_copy",
+      "KU_03436_copy",
+      "KU_03402_copy",
+      "KU_03352_copy",
+      "KU_03384_copy",
+      "KU_03394_copy",
+      "KU_03355_copy",
+      "KU_03400_copy",
+
+
+      "KU_06503",
+      "KU_06497",
+      "KU_06501",
+      "KU_06493",
+      "KU_06491",
+      "KU_06490",
+      "KU_06488",
+      "KU_06484",
+      "KU_06481",
+      "KU_06480",
+      "KU_06467",
+      "KU_06449",
+      "KU_06434",
+
+
+      "01",
+      "03",
+      "KU_04713_copy",
+      "KU_04646_copy",
+      "KU_04647_copy",
+      "KU_04710_copy",
+      "KU_04627_copy",
+      "KU_04639_copy",
+      "KU_04895_copy",
+      "KU_04660_copy",
+      "KU_04694_copy",
+      "KU_04903_copy",
+
+
+      "IMG_8680ai",
+      "PH_7",
+      "PH_4",
+      "PH_2",
+      "KU_02848_copy",
+      "PH_13",
+      "KU_04836",
+      "KU_04875_copy",
+      "PH_8",
+      "KU_04839_copy",
+      "KU_02910_copy",
+      "KU_02904_copy",
+      "KU_02753_copy",
+      "KU_04863_copy",
+      "KU_02727_copy",
+      "KU_04860_copy",
+      "KU_02891_copy",
+      "PH_11",
+      "KU_05060_copy",
+      "KU_04839",
+      "KU_04771_copy",
+      "KU_05115",
+      "KU_02732_copy",
+      "KU_04863",
+      "KU_04926_copy",
+      "KU_02786_copy",
+
+
+      "LAVANYA_220_copy",
+      "LAVANYA_346_copy",
+      "lavanya_08",
+      "LAVANYA_195_copy",
+      "lavanya_06",
+      "lavanya_04",
+      "lavanya_02",
+      "LAVANYA_215_copy",
+      "lavanya_01",
+      "LAVANYA_15_copy",
+      "LAVANYA_116_copy",
+      "lavanya_006",
+
+
+      "KU_03387_copy",
+      "KU_03361_copy",
+      "KU_03363_copy",
+      "KU_03372_copy",
+      "KU_04295_copy",
+      "KU_03356_copy",
+      "KU_04342_copy",
+      "KU_04228_copy",
+      "KU_03353_copy",
+      "KU_04303_copy",
+      "KU_04356_copy",
+      "KU_04345_copy",
+      "KU_04350_copy",
+      "KU_04336_copy",
+      "KU_04220_copy",
+      "KU_04320_copy",
+      "KU_04311_copy",
+
+
+      "KU_06433",
+      "KU_06428",
+      "KU_06426",
+      "KU_06424",
+      "KU_06423",
+      "KU_06418",
+      "KU_06408",
+      "KU_06416",
+      "KU_06409",
+      "KU_06407",
+      "KU_06404",
+      "KU_06398",
+      "KU_06394",
+      "KU_06384",
+
+
+      "KU_04788_copy",
+      "KU_04788_copy",
+      "KU_04897_copy",
+      "KU_04599_copy",
+      "KU_04925_copy",
+      "KU_04950_copy",
+      "KU_04692_copy",
+      "KU_04696_copy",
+      "KU_04855_copy",
+      "KU_04691_copy",
+      "KU_04602_copy",
+      "KU_04841_copy",
+      "KU_04951_copy",
+      "KU_04609_copy",
+      "KU_04785_copy",
+      "02",
+      "KU_04918_copy",
+
+
+      "19",
+      "KU_05061",
+      "KU_05056",
+      "KU_04948",
+      "KU_04920",
+      "KU_04908",
+      "KU_04898",
+      "KU_04872",
+      "KU_04857",
+      "KU_04937",
+
+
+      "lavanya_005",
+      "lavanya_002",
+      "LAVANYA_73_copy",
+      "LAVANYA_340_copy",
+      "LAVANYA_294_copy",
+      "LAVANYA_162_copy",
+      "LAVANYA_188_copy",
+      "LAVANYA_324_copy",
+      "LAVANYA_229_copy",
+      "LAVANYA_311_copy",
+      "FINAL_02_jpg",
+      "FINAL_01_jpg",
+      "LAVANYA_895_copy",
+
+
+      "16sunil",
+      "08sunil",
+      "15sunil",
+      "12sunil",
+      "04sunil",
+      "09sunil",
+      "KU_03542_copysunil",
+      "19sunil",
+      "KU_03506_copysunil",
+      "KU_03503_copysunil",
+      "07sunil",
+      "11sunil",
+      "01sunil",
+      "03sunil",
+      "14sunil",
+      "10sunil",
+      "05sunil",
+      "02_storysunil",
+      "01_storysunil",
+
+
+      "KU_06552",
+      "KU_06550",
+      "KU_06543",
+      "KU_06542",
+      "KU_06541",
+      "KU_06539",
+      "KU_06535",
+      "KU_06516",
+      "KU_06532",
+      "KU_06531",
+      "KU_06521",
+      "KU_06512",
+      "KU_06514",
+      "KU_06510",
+      "KU_06502",
+      "KU_06509",
+      "KU_06507",
+
+
+      "KU_04780_copy",
+      "KU_04864_copy",
+      "KU_04834_copy",
+      "KU_04810_copy",
+      "KU_04797_copy",
+      "KU_04779_copy",
+      "03_copy",
+      "04",
+      "11",
+      "13",
+      "12",
+      "08",
+      "16",
+      "10",
+      "09",
+      "14",
+      "15",
+      "07",
 ];
 
 // Shown on the /faq page as an accordion. Edit the wording freely -

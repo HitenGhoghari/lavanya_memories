@@ -5,6 +5,7 @@ import {
   INSTAGRAM_POSTS,
   INSTAGRAM_PROFILE,
   photoSrc,
+  assetSrc,
 } from "../data";
 
 const InstagramIcon = ({ size = 14 }) => (
@@ -113,7 +114,7 @@ export default function InstagramSection() {
         >
           <div className="instagram-avatar-wrap">
             <img
-              src={`/images/${INSTAGRAM_PROFILE.avatar}`}
+              src={assetSrc(INSTAGRAM_PROFILE.avatar)}
               alt={INSTAGRAM_PROFILE.username}
               className="instagram-avatar"
             />

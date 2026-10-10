@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { assetSrc } from '../data'
 
 // Counts 0 -> 100, then slides up and tells App it is finished.
 export default function Preloader({ onDone }) {
@@ -46,11 +47,7 @@ export default function Preloader({ onDone }) {
     <div id="boot" className={leaving ? 'boot-out' : ''}>
 
       {/* BRAND LOGO */}
-      <img
-        className="boot-logo"
-        src="/images/logo.png"
-        alt="Lavanya Memories"
-      />
+      <img className="boot-logo" src={assetSrc('logo.png')} alt="Lavanya Memories" />
 
       {/* LOADING PROGRESS */}
       <div

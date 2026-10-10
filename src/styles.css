@@ -2440,13 +2440,6 @@ video {
    EDITORIAL — INFINITE MASONRY
    ========================================================= */
 
-/* .ivory-editorial {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  overflow: hidden;
-  background: var(--cream);
-} */
 
 .ivory-editorial {
   position: fixed;
@@ -2465,43 +2458,11 @@ video {
   overflow-anchor: none;
 }
 
-/* .ivory-track {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  will-change: transform;
-}
-
-.ivory-copy {
-  column-count: 3;
-  column-gap: 6px;
-  padding: 0 6px;
-} */
-
 .ivory-track {
   position: absolute;
   inset: 0;
   /* No transform here — each copy is moved independently */
 }
-
-/* .ivory-copy {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  column-count: 3;
-  column-gap: 6px;
-  padding: 0 6px;
-
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  contain: layout style paint;
-} */
 
 .ivory-copy {
   column-count: 3;
