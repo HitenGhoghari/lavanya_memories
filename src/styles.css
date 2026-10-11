@@ -71,6 +71,8 @@ html {
   scroll-padding-top: calc(var(--sat) + 80px);
   -webkit-text-size-adjust: 100%;
   overflow-x: hidden;
+  font-size: 20px;
+  overflow-anchor: none;
 }
 
 body {
@@ -282,10 +284,7 @@ video {
   letter-spacing: -.01em;
 }
 
-.drawer a:last-of-type {
-  color: var(--sand);
-}
-
+.drawer a:last-of-type { color: var(--sand); }
 .drawer a:hover { color: var(--sand); }
 
 .drawer small {
@@ -911,51 +910,12 @@ video {
 }
 
 /* =========================================================
-   FILMS PAGE (new)
+   FILMS PAGE
    ========================================================= */
 
 .films-page-new {
   background: var(--cream);
   color: var(--ink);
-}
-
-.films-hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 560px;
-  overflow: hidden;
-  background: var(--cream);
-}
-
-.films-hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: var(--ink);
-  line-height: .9;
-  padding: 0 20px;
-  width: 100%;
-}
-
-.films-hero-line {
-  display: block;
-  font-family: 'Sayonara', 'Made Sayonara', 'Times New Roman', serif;
-  font-weight: 400;
-  font-size: clamp(70px, 13vw, 186px);
-  line-height: 0.9;
-  letter-spacing: 7px;
-  color: var(--ink);
-}
-
-.films-hero-line-2 {
-  display: block;
-  font-family: 'Sayonara', 'Made Sayonara', 'Times New Roman', serif;
-  font-size: clamp(50px, 8vw, 120px);
-  letter-spacing: 5px;
-  margin-top: 10px;
 }
 
 .films-intro-block {
@@ -967,7 +927,7 @@ video {
 
 .films-intro-block p {
   font-family: "Times New Roman", serif;
-  font-size: 15px;
+  font-size: 20px;
   line-height: 1.75;
   color: #4a4238;
   margin: 0;
@@ -1066,21 +1026,17 @@ video {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
   font-family: "Times New Roman", serif;
   font-size: 14px;
   letter-spacing: .22em;
   text-transform: uppercase;
   font-weight: 500;
-
   color: var(--ink);
   padding: 14px 4px;
   position: relative;
-
   transition: opacity .3s ease;
 }
 
-/* Underline that grows from left on hover */
 .view-more-link::after {
   content: "";
   position: absolute;
@@ -1094,13 +1050,8 @@ video {
   transition: transform .4s cubic-bezier(.22, 1, .36, 1);
 }
 
-.view-more-link:hover {
-  opacity: .7;
-}
-
-.view-more-link:hover::after {
-  transform: scaleX(1);
-}
+.view-more-link:hover { opacity: .7; }
+.view-more-link:hover::after { transform: scaleX(1); }
 
 .view-more-arrow {
   font-size: 16px;
@@ -1112,22 +1063,13 @@ video {
   transform: translateX(6px);
 }
 
-/* ---------- MOBILE ---------- */
-
 @media (max-width: 720px) {
-  .home-films-more {
-    margin-top: 40px;
-  }
-
-  .view-more-link {
-    font-size: 12px;
-    letter-spacing: .18em;
-  }
+  .home-films-more { margin-top: 40px; }
+  .view-more-link { font-size: 12px; letter-spacing: .18em; }
 }
 
-
 /* =========================================================
-   TESTIMONIALS — alternating zigzag on desktop, stacked on mobile
+   TESTIMONIALS
    ========================================================= */
 
 .testimonials-section {
@@ -1183,25 +1125,18 @@ video {
   color: var(--ink);
 }
 
-/* Row layout: text first in DOM, image second */
 .testimonial-row-inner {
   display: flex;
   gap: clamp(30px, 5vw, 60px);
   align-items: center;
-  flex-direction: row;               /* text left, image right (default) */
+  flex-direction: row;
 }
 
-/*
-  Alternating zigzag: flip the FIRST (odd) row of each pair so the
-  image sits on the left. Even rows keep text-left / image-right.
-*/
 .testimonial-row:nth-child(odd) .testimonial-row-inner {
   flex-direction: row-reverse;
 }
 
-.testimonial-content {
-  flex: 1;
-}
+.testimonial-content { flex: 1; }
 
 .testimonial-content h3 {
   font-family: "Made Sayonara 2";
@@ -1258,7 +1193,6 @@ video {
   transform: scale(1.02);
 }
 
-/* Rows with no image get centered text */
 .testimonial-row:not(.has-image) .testimonial-content {
   max-width: 650px;
   margin: 0 auto;
@@ -1269,18 +1203,14 @@ video {
   text-align: center;
 }
 
-
-/* Even rows: image on the right → text aligns to the right */
 .testimonial-row:nth-child(even) .testimonial-content {
   text-align: right;
 }
 
-/* Keep the signature on the same side as the text */
 .testimonial-row:nth-child(even) .testimonial-signature {
   text-align: right;
 }
 
-/* Mobile overrides — always centered */
 @media (max-width: 768px) {
   .testimonial-row:nth-child(even) .testimonial-content,
   .testimonial-row:nth-child(even) .testimonial-signature {
@@ -1288,13 +1218,7 @@ video {
   }
 }
 
-
-/* =========================================================
-   TESTIMONIALS — mobile: always stack text-first
-   ========================================================= */
-
 @media (max-width: 768px) {
-  /* Force every row to column, image below text */
   .testimonial-row-inner,
   .testimonial-row:nth-child(odd) .testimonial-row-inner,
   .testimonial-row:nth-child(even) .testimonial-row-inner,
@@ -1305,18 +1229,9 @@ video {
     text-align: center;
   }
 
-  .testimonial-image {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  .testimonial-signature {
-    text-align: center;
-  }
-
-  .testimonials-head h2 {
-    font-size: clamp(2.5rem, 12vw, 4rem);
-  }
+  .testimonial-image { max-width: 100%; width: 100%; }
+  .testimonial-signature { text-align: center; }
+  .testimonials-head h2 { font-size: clamp(2.5rem, 12vw, 4rem); }
 }
 
 /* =========================================================
@@ -1841,8 +1756,6 @@ video {
 
 .enq-page-note.err { color: #c44a3a; }
 
-
-/* Inline validation messages */
 .enq-err {
   display: block;
   margin-top: 6px;
@@ -1851,18 +1764,15 @@ video {
   color: #c44a3a;
 }
 
-/* Also show the field label in red when invalid */
 .enq-page-field.bad > span {
   color: #c44a3a;
 }
 
-/* Disabled submit button */
 .enq-page-submit:disabled {
   opacity: .6;
   cursor: not-allowed;
   transform: none;
 }
-
 
 /* =========================================================
    FOOTER
@@ -2074,11 +1984,12 @@ video {
   margin: 0 auto .9rem;
   text-align: center;
   font-family: "Times New Roman", Sans-serif;
-  font-size: 15px;
+  font-size: 20px;
   font-weight: 400;
-  line-height: 20px;
+  line-height: 30px;
   color: #4D4D4D;
   padding: 12px 12px 25px;
+  max-width: 1500px;
 }
 
 .story-back {
@@ -2106,8 +2017,6 @@ video {
   letter-spacing: -.025em;
 }
 
-/* ---------- Story cover (top image) ---------- */
-
 .story-cover {
   max-width: 1100px;
   margin: 0 auto 40px;
@@ -2127,16 +2036,9 @@ video {
   border-radius: 10px;
 }
 
-/* ---------- Story cover — mobile ---------- */
-
 @media (max-width: 720px) {
-  .story-cover {
-    margin-bottom: 24px;
-  }
-
-  .story-cover img {
-    max-height: 55vh;
-  }
+  .story-cover { margin-bottom: 24px; }
+  .story-cover img { max-height: 55vh; }
 }
 
 .story-gallery {
@@ -2220,13 +2122,12 @@ video {
    ========================================================= */
 
 .faq-page {
-  max-width: 1500px;
-  margin: auto;
+  width: 100%;
 }
 
 .faq-list {
   max-width: 1100px;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .faq-item { border-top: 1px solid var(--hair); }
@@ -2440,28 +2341,22 @@ video {
    EDITORIAL — INFINITE MASONRY
    ========================================================= */
 
-
 .ivory-editorial {
   position: fixed;
   inset: 0;
   z-index: 10;
-  overflow-y: auto;              /* ← native vertical scroll */
+  overflow-y: auto;
   overflow-x: hidden;
   background: var(--cream);
-
-  /* Native momentum + no chain-scrolling to the page behind */
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   scroll-behavior: auto;
-
-  /* Kill scroll anchoring so our scrollTop jumps don't fight the browser */
   overflow-anchor: none;
 }
 
 .ivory-track {
   position: absolute;
   inset: 0;
-  /* No transform here — each copy is moved independently */
 }
 
 .ivory-copy {
@@ -2499,6 +2394,97 @@ video {
 .rv.in {
   opacity: 1;
   transform: none;
+}
+
+/* =========================================================
+   FILMS HERO — 1920×600 video centered on cream
+   ========================================================= */
+
+.films-hero {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.films-hero-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  aspect-ratio: 1920 / 600;
+  overflow: hidden;
+  background: #000;
+}
+
+.films-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+}
+
+.films-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.38);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.films-hero-text {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.films-hero-line {
+  display: block;
+  font-family: 'Sayonara', 'Made Sayonara', 'Times New Roman', serif;
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 110px);
+  line-height: 0.9;
+  letter-spacing: 7px;
+  color: #fff;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+}
+
+.films-hero-line-2 {
+  display: block;
+  font-family: 'Sayonara', 'Made Sayonara', 'Times New Roman', serif;
+  font-size: clamp(28px, 4vw, 74px);
+  letter-spacing: 5px;
+  margin-top: 8px;
+}
+
+@media (max-width: 720px) {
+  .films-hero {
+    min-height: auto;
+    padding: 100px 0px 60px;
+  }
+
+  .films-hero-frame {
+    aspect-ratio: 1920 / 600;   /* was 16 / 9 */
+  }
+
+  .films-hero-line {
+    letter-spacing: 4px;
+  }
+
+  .films-hero-line-2 {
+    letter-spacing: 3px;
+  }
 }
 
 /* =========================================================
@@ -2605,7 +2591,6 @@ video {
    ========================================================= */
 
 @media (max-width: 768px) {
-  /* Testimonials stack: text on top, image below */
   .testimonial-row-inner {
     flex-direction: column;
     text-align: center;
@@ -2661,8 +2646,6 @@ video {
 
   .home-films-head h2 { font-size: clamp(1.6rem, 7vw, 2.4rem); }
   .home-film-info h3 { font-size: 18px; }
-
-  .films-hero { height: 70vh; min-height: 420px; }
 
   .films-intro-block { padding: 55px 20px 45px; }
   .films-intro-block p { font-size: 14px; }
@@ -2788,7 +2771,6 @@ video {
 
 /* =========================================================
    RESPONSIVE — 600px
-   Instagram grid switches to 2 columns × 3 rows here.
    ========================================================= */
 
 @media (max-width: 600px) {
@@ -2811,7 +2793,6 @@ video {
     height: 100%;
   }
 
-  /* 2 columns, 3 rows for 6 posts — bigger tiles on mobile */
   .instagram-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
@@ -2876,9 +2857,6 @@ video {
 
   .facts b { font-size: 1.6rem; }
   .facts span { font-size: 8px; }
-
-  .films-hero-line { letter-spacing: 3px; }
-  .films-hero-line-2 { letter-spacing: 2px; }
 }
 
 /* =========================================================
@@ -2899,4 +2877,12 @@ video {
   .rv { opacity: 1; transform: none; }
   .hero-type { transform: none !important; }
   .starter-video video { animation: none; }
+}
+
+/* =========================================================
+   SCROLL RESTORE (used by App.jsx when returning home)
+   ========================================================= */
+
+html.restoring-scroll body {
+  visibility: hidden;
 }

@@ -6,24 +6,52 @@ export default function Films() {
 
   return (
     <section className="films-page-new">
-
       {/* ============================================================
           HERO
           ============================================================ */}
       <header className="films-hero">
-  <div className="films-hero-text">
-    <span className="films-hero-line">Cinematic</span>
-    <span className="films-hero-line films-hero-line-2">Memories</span>
-  </div>
-</header>
+        <div className="films-hero-frame">
+          <video
+            className="films-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster="https://res.cloudinary.com/p4bs69b5/video/upload/q_auto,w_1920,f_auto,c_fill,ar_1920:600,so_0/cinamatic_back.jpg"
+          >
+            <source
+              src="https://res.cloudinary.com/p4bs69b5/video/upload/q_auto,w_1920,f_auto,c_fill,ar_1920:600/cinamatic_back.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          <div className="films-hero-overlay" aria-hidden="true" />
+
+          <div className="films-hero-text">
+            <span className="films-hero-line">Cinematic</span>
+            <span className="films-hero-line films-hero-line-2">Memories</span>
+          </div>
+        </div>
+      </header>
 
       {/* ============================================================
           INTRO PARAGRAPH
           ============================================================ */}
       <div className="films-intro-block">
         <p>
-          Our wedding films are designed to be a living, breathing reflection of your unique journey. From the quiet morning anticipation to the vibrant energy of your reception, we craft films that feel as authentic and alive as the day itself. Whether we are producing a short, impactful teaser or a sweeping full-length feature, every single frame is intentionally captured to highlight your genuine connection. We go far beyond merely hitting record; we weave a rich visual narrative that allows you to step right back into the shared laughter, the unspoken glances, and the overwhelming joy. Our deepest hope is to preserve your celebration so vividly that every time you press play, the magic rushes back. This is your story, captured beautifully in motion.
-          in motion.
+          Our wedding films are designed to be a living, breathing reflection of
+          your unique journey. From the quiet morning anticipation to the
+          vibrant energy of your reception, we craft films that feel as
+          authentic and alive as the day itself. Whether we are producing a
+          short, impactful teaser or a sweeping full-length feature, every
+          single frame is intentionally captured to highlight your genuine
+          connection. We go far beyond merely hitting record; we weave a rich
+          visual narrative that allows you to step right back into the shared
+          laughter, the unspoken glances, and the overwhelming joy. Our deepest
+          hope is to preserve your celebration so vividly that every time you
+          press play, the magic rushes back. This is your story, captured
+          beautifully in motion. in motion.
         </p>
       </div>
 
@@ -68,7 +96,6 @@ export default function Films() {
           </article>
         ))}
       </div>
-
     </section>
   );
 }
