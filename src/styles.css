@@ -148,6 +148,7 @@ video {
   border-width: 0;
 }
 
+
 /* =========================================================
    PRELOADER
    ========================================================= */
@@ -2879,10 +2880,75 @@ video {
   .starter-video video { animation: none; }
 }
 
+<<<<<<< HEAD
 /* =========================================================
    SCROLL RESTORE (used by App.jsx when returning home)
    ========================================================= */
 
 html.restoring-scroll body {
   visibility: hidden;
+=======
+
+
+/* =========================================================
+   FILMS HERO — background video
+   ========================================================= */
+
+.films-hero {
+  position: relative;
+  width: 100%;
+  height: 600px;                /* ← fixed height, not 100vh */
+  min-height: 600px;
+  overflow: hidden;
+  background: #000;
+}
+
+.films-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dark layer so the white text stays readable over any frame */
+.films-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Text sits above the video */
+.films-hero-text {
+  position: absolute;
+  z-index: 3;
+  color: #fff;                     /* was var(--ink) */
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+
+.films-hero-line {
+  color: #fff;                     /* was var(--ink) */
+}
+
+/* Mobile — video gets lighter overlay so it stays visible */
+@media (max-width: 720px) {
+  .films-hero-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .films-hero {
+    height: auto;                    /* let aspect-ratio decide the height */
+    min-height: 0;
+    aspect-ratio: 1920 / 600;        /* same shape as the video */
+  }
+
+  .films-hero-video {
+    object-position: center center;
+    object-fit: cover;
+  }
+>>>>>>> a288e7494a065fc93c1a26f0129b1aa04feb2069
 }

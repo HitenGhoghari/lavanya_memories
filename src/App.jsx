@@ -68,7 +68,11 @@
 
 
 import { lazy, Suspense } from "react";
+<<<<<<< HEAD
 import { useState, useCallback, useEffect, useLayoutEffect, useRef } from "react";
+=======
+import { useState, useCallback, useEffect, useRef } from "react";
+>>>>>>> a288e7494a065fc93c1a26f0129b1aa04feb2069
 import useReveal from "./hooks/useReveal";
 import Preloader from "./components/Preloader";
 import Nav from "./components/Nav";
