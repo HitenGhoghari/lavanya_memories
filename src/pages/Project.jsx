@@ -110,7 +110,7 @@ export default function Project() {
       {/* ---------- SONG PLAYER (only if this project has one) ---------- */}
       {project.song && (
         <div className="story-song">
-          <h3 className="story-song-title">{project.title}</h3>
+          <h3 className="story-song-title">Play Song</h3>
           <audio
             ref={audioRef}
             controls

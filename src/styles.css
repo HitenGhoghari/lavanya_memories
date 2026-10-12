@@ -2051,8 +2051,8 @@ video {
 .story-song-title {
   margin: 0 0 20px;
   font-family: "Times New Roman", serif;
-  font-size: clamp(18px, 2vw, 24px);
-  font-weight: 700;
+  font-size: clamp(18px, 1.4vw, 24px);
+  font-weight: 100;
   letter-spacing: .01em;
   color: #2e2a24;
 }
@@ -2073,7 +2073,7 @@ video {
   }
 
   .story-song-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .story-song-player {
