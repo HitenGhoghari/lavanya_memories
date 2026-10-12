@@ -2414,7 +2414,7 @@ video {
 .films-hero-frame {
   position: relative;
   width: 100%;
-  max-width: 1920px;
+  /* max-width: 1920px; */
   aspect-ratio: 1920 / 600;
   overflow: hidden;
   background: #000;
