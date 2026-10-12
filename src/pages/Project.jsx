@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { PROJECTS, photoSrc } from "../data";
 import { AppLink, usePath } from "../router";
 
@@ -24,6 +24,10 @@ export default function Project() {
       : null;
 
   const [widePhotos, setWidePhotos] = useState(new Set());
+
+  // Reference to the <audio> element so we can stop playback
+  // when the user navigates away from this project page.
+  const audioRef = useRef(null);
 
   useEffect(() => {
     if (!project) return;
@@ -64,6 +68,18 @@ export default function Project() {
     };
   }, [project]);
 
+  // Stop the audio when leaving the project page.
+  // Without this, a playing song would keep playing in the
+  // background after the user navigates to another page.
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+    };
+  }, []);
+
   if (!project)
     return (
       <section className="not-found">
@@ -91,6 +107,22 @@ export default function Project() {
         </div>
       </header>
 
+      {/* ---------- SONG PLAYER (only if this project has one) ---------- */}
+      {project.song && (
+        <div className="story-song">
+          <h3 className="story-song-title">{project.title}</h3>
+          <audio
+            ref={audioRef}
+            controls
+            preload="metadata"
+            src={project.song}
+            className="story-song-player"
+          >
+            Your browser does not support audio playback.
+          </audio>
+        </div>
+      )}
+
       <figure className="story-cover">
         <img src={photoSrc(project.cover)} alt={`${project.title} cover`} />
       </figure>
@@ -99,20 +131,11 @@ export default function Project() {
         <p>{project.description}</p>
       </div>
 
-      {/* <div className="story-gallery">
-        {project.photos.map((photo, index) => (
-          <figure className="story-photo" key={`${project.slug}-${photo}`}>
-            <img src={photoSrc(photo)} alt={`${project.title} frame ${index + 1}`} loading={index > 1 ? 'lazy' : undefined} />
-          </figure>
-        ))}
-      </div> */}
-
       <div className="story-gallery">
         {(() => {
           const portraits = [];
           const landscapes = [];
 
-          // Separate all photos by orientation
           project.photos.forEach((photo, index) => {
             if (widePhotos.has(index)) {
               landscapes.push({ photo, index });
@@ -122,21 +145,13 @@ export default function Project() {
           });
 
           const rows = [];
-
           let portraitIndex = 0;
           let landscapeIndex = 0;
 
-          // Build:
-          // Portrait + Portrait
-          // Landscape
-          // Portrait + Portrait
-          // Landscape
-          // ...
           while (
             portraitIndex < portraits.length ||
             landscapeIndex < landscapes.length
           ) {
-            // Two portraits
             if (portraitIndex < portraits.length) {
               const portraitPair = portraits.slice(
                 portraitIndex,
@@ -151,7 +166,6 @@ export default function Project() {
               portraitIndex += 2;
             }
 
-            // One landscape
             if (landscapeIndex < landscapes.length) {
               rows.push({
                 type: "landscape",
@@ -163,9 +177,6 @@ export default function Project() {
           }
 
           return rows.map((row, rowIndex) => {
-            // =========================
-            // LANDSCAPE
-            // =========================
             if (row.type === "landscape") {
               const { photo, index } = row.photos[0];
 
@@ -183,9 +194,6 @@ export default function Project() {
               );
             }
 
-            // =========================
-            // PORTRAITS
-            // =========================
             return (
               <div
                 className="story-photo-row"
@@ -210,7 +218,6 @@ export default function Project() {
       </div>
 
       <footer className="story-footer">
-        {/* PREVIOUS */}
         <div className="story-nav story-nav-prev">
           {previousProject ? (
             <AppLink
@@ -225,7 +232,6 @@ export default function Project() {
           ) : null}
         </div>
 
-        {/* BACK TO PHOTOGRAPHY */}
         <div className="story-nav story-nav-center">
           <AppLink to={back} className="story-home-link">
             Back to{" "}
@@ -233,7 +239,6 @@ export default function Project() {
           </AppLink>
         </div>
 
-        {/* NEXT */}
         <div className="story-nav story-nav-next">
           {nextProject ? (
             <AppLink

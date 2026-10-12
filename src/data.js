@@ -105,6 +105,7 @@ export const PROJECTS = [
     location: "Surat",
     year: 2025,
     cover: "piyush_cover",
+    song: "https://res.cloudinary.com/p4bs69b5/video/upload/v1791786457/piyush-hiral.mp3",
     description:
       "",
     story: [
@@ -262,6 +263,7 @@ export const PROJECTS = [
     location: "Surat",
     year: 2022,
     cover: "lavanya_01",
+    song: "https://res.cloudinary.com/p4bs69b5/video/upload/v1791786459/vishal-trupti.mp3",
     description:
       "",
     story: [
@@ -321,6 +323,7 @@ export const PROJECTS = [
     location: "Surat",
     year: 2024,
     cover: "05sunil",
+    song: "https://res.cloudinary.com/p4bs69b5/video/upload/v1791787545/sunil-vaishali.mp3",
     description:
       "",
     story: [
@@ -458,6 +461,7 @@ export const PROJECTS = [
     location: "Surat",
     year: 2024,
     cover: "KU_06428",
+    song: "https://res.cloudinary.com/p4bs69b5/video/upload/v1791787938/dharmesh-kirti.mp3",
     description:
       "",
     story: [
@@ -637,6 +641,7 @@ export const PROJECTS = [
     location: "Surat",
     year: 2025,
     cover: "KU_04696_copy",
+    song: "https://res.cloudinary.com/p4bs69b5/video/upload/v1791787701/kishan-jyoti.mp3",
     description:
       "",
     story: [
