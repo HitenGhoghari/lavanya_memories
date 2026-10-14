@@ -733,7 +733,7 @@ export const YOUTUBE_VIDEOS = [
     title: "Kishan x Jyoti",
   },
   {
-    id: "OB3EPjnSMhQ",
+    id: "WgqM-bO7qxc",
     title: "PIYUSH & HIRAL",
   },
   {
@@ -755,7 +755,7 @@ export const TESTIMONIALS = [
     image: "piyush_cover",
     projectSlug: "Piyush-Hiral",
     text: `We cannot thank the team at Lavanya Memories enough for capturing our engagement so beautifully. From the very first click, they made us feel incredibly comfortable, allowing our true chemistry to shine through effortlessly. The photos and the teaser film are absolute magic—they perfectly encapsulate the excitement, love, and anticipation of this new chapter in our lives. Every single frame feels so authentic and true to who we are as a couple. If this is how our engagement turned out, we simply cannot wait for the wedding! Thank you for giving us the most beautiful start to our forever.`,
-    signature: "Piyush Jikadara"
+    signature: "Piyush Jikadra"
   },
   {
     name: "Vishal & Trupti",
