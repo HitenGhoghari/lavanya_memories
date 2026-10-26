@@ -1391,6 +1391,19 @@ video {
   pointer-events: none;
 }
 
+/* FeedFusion Instagram Widget */
+.instagram-widget-wrapper {
+  max-width: 680px;
+  margin: 0 auto;
+  min-height: 400px; /* Keeps the page from jumping while it loads */
+}
+
+/* Completely hide the FeedFusion watermark */
+.instagram-widget-wrapper a[href*="feed-fusion"],
+.instagram-widget-wrapper a[href*="feedfusion"] {
+  display: none !important;
+}
+
 /* =========================================================
    CONTACT FORM (home page)
    ========================================================= */

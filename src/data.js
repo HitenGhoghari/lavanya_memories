@@ -1129,3 +1129,9 @@ We dedicate time to ideation, getting to know your photography style, your favor
 We create event-specific mood boards to visualize your vision and establish a collaborative space on Instagram where you can share any references you love.`,
   },
 ];
+
+// ============================================================
+// INSTAGRAM FEEDFUSION SETTINGS
+// ============================================================
+export const FEEDFUSION_USERNAME = "lavanya_memories_";
+export const FEEDFUSION_PUBLIC_KEY = "30fd4d32cfb151279e384fa8a279db0c";
