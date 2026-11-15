@@ -1,0 +1,6 @@
+# Robots.txt for Lavanya Memories
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://lavanyamemories.vercel.app/sitemap.xml

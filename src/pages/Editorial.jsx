@@ -53,6 +53,7 @@ export default function Editorial() {
 
   return (
     <section className="ivory-editorial" ref={containerRef}>
+      <h1 className="sr-only">Editorial Wedding Photography & Fine Art Portraits — Lavanya Memories</h1>
       {Array.from({ length: COPIES }).map((_, copy) => (
         <div
           className="ivory-copy"
@@ -65,7 +66,7 @@ export default function Editorial() {
             <div className="ivory-card" key={`${copy}-${i}`}>
               <img
                 src={photoSrc(img)}
-                alt=""
+                alt={`Lavanya Memories editorial wedding photography ${i + 1}`}
                 loading={copy === 0 && i < 6 ? "eager" : "lazy"}
                 decoding="async"
               />

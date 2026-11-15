@@ -51,6 +51,7 @@
 //   // Re-run the fade-in-on-scroll watcher every time the page changes,
 //   // otherwise elements on a newly opened page never get the "in" class.
 //   useReveal([path]);
+  usePageSEO(path);
 
 //   // "/project/<anything>" is not a fixed key in ROUTES, so it is
 //   // checked separately. Anything unrecognised falls back to Home.
@@ -70,6 +71,7 @@
 import { lazy, Suspense } from "react";
 import { useState, useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import useReveal from "./hooks/useReveal";
+import usePageSEO from "./hooks/usePageSEO";
 import Preloader from "./components/Preloader";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -116,6 +118,7 @@ export default function App() {
   const homeScrollRef = useRef(0);
 
   useReveal([path]);
+  usePageSEO(path);
 
   // ── Track the home page scroll position on every scroll ─────────
   // Because this runs continuously while the user is on `/`, the ref
